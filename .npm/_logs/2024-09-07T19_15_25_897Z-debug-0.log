@@ -1,0 +1,13 @@
+0 verbose cli /usr/local/nvm/versions/node/v18.20.4/bin/node /usr/local/nvm/versions/node/v18.20.4/bin/npm
+1 info using npm@10.7.0
+2 info using node@v18.20.4
+3 silly config:load:file:/usr/local/nvm/versions/node/v18.20.4/lib/node_modules/npm/npmrc
+4 silly config:load:file:/home/.npmrc
+5 silly config:load:file:/home/ally/.npmrc
+6 silly config:load:file:/usr/local/nvm/versions/node/v18.20.4/etc/npmrc
+7 verbose title npm config get prefix
+8 verbose argv "config" "--loglevel" "warn" "get" "prefix"
+9 verbose logfile logs-max:10 dir:/home/ally/.npm/_logs/2024-09-07T19_15_25_897Z-
+10 verbose logfile /home/ally/.npm/_logs/2024-09-07T19_15_25_897Z-debug-0.log
+11 verbose exit 0
+12 info ok

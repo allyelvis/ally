@@ -1,0 +1,154 @@
+{
+	"name": "anyscale-workspaces",
+	"displayName": "Workspaces",
+	"description": "",
+	"version": "0.2.23",
+	"engines": {
+		"vscode": "^1.66.0"
+	},
+	"icon": "logo.png",
+	"categories": [
+		"Other"
+	],
+	"activationEvents": [
+		"onUri",
+		"onCommand:anyscale.openVSCodeLocally",
+		"onStartupFinished"
+	],
+	"publisher": "anyscalecompute",
+	"main": "./dist/extension.js",
+	"contributes": {
+		"commands": [
+			{
+				"command": "anyscale.openVSCodeLocally",
+				"title": "Anyscale workspace: Open in VSCode Desktop",
+				"when": "isWeb"
+			},
+			{
+				"command": "anyscale.connectToDebuggingProcess",
+				"title": "Connect to remote process",
+				"category": "Anyscale Debug",
+				"enablement": "!inDebugMode",
+				"icon": "$(debug-alt)"
+			},
+			{
+				"command": "anyscale.startDebugging",
+				"title": "Start debugging",
+				"category": "Anyscale Debug",
+				"enablement": "!inDebugMode",
+				"icon": "$(debug-alt)"
+			},
+			{
+				"command": "anyscale.refreshPausedTasks",
+				"title": "Refresh paused tasks",
+				"category": "Anyscale Debug",
+				"icon": "$(debug-alt)"
+			},
+			{
+				"command": "anyscale.refreshJobs",
+				"title": "Refresh job list",
+				"category": "Anyscale Debug",
+				"icon": "$(debug-alt)"
+			}
+		],
+		"menus": {
+			"view/item/context": [
+				{
+					"command": "anyscale.startDebugging",
+					"when": "viewItem == PausedTaskItemContextValue",
+					"group": "inline"
+				}
+			]
+		},
+		"configuration": [
+			{
+				"title": "Workspaces",
+				"properties": {
+					"anyscalecompute.anyscale-workspaces.firstStart": {
+						"type": "boolean",
+						"scope": "machine",
+						"description": "A flag to indicate if this is the first time the extension has been loaded. Automatically set to false after the first load (web only).",
+						"default": false
+					},
+					"anyscalecompute.anyscale-workspaces.pythonSetupComplete": {
+						"type": "boolean",
+						"description": "if false, it will configure the default path for python. Automatically set to true after the first load (web only).",
+						"default": false
+					}
+				}
+			}
+		],
+		"viewsContainers": {
+			"activitybar": [
+				{
+					"id": "anyscaleDebug",
+					"title": "Anyscale Debug",
+					"icon": "anyscale_debugger_black_transparent.png"
+				}
+			]
+		},
+		"views": {
+			"anyscaleDebug": [
+				{
+					"id": "paused-tasks",
+					"name": "Paused Tasks"
+				},
+				{
+					"id": "ray-job-list",
+					"name": "Jobs"
+				}
+			]
+		}
+	},
+	"scripts": {
+		"vscode:prepublish": "npm run package",
+		"compile": "webpack",
+		"watch": "webpack --watch",
+		"package": "webpack --mode production --devtool hidden-source-map",
+		"compile-tests": "tsc -p . --outDir out",
+		"watch-tests": "tsc -p . -w --outDir out",
+		"pretest": "npm run compile-tests && npm run compile && npm run lint",
+		"lint": "eslint src --ext ts",
+		"test": "node ./out/test/runTest.js",
+		"build": "npm run vscode:prepublish && vsce package"
+	},
+	"devDependencies": {
+		"@types/fs-extra": "^9.0.13",
+		"@types/glob": "^7.2.0",
+		"@types/mocha": "^9.1.1",
+		"@types/node": "14.x",
+		"@types/vscode": "^1.66.0",
+		"@typescript-eslint/eslint-plugin": "^5.21.0",
+		"@typescript-eslint/parser": "^5.21.0",
+		"@vscode/test-electron": "^2.1.3",
+		"eslint": "^8.14.0",
+		"glob": "^8.0.1",
+		"mocha": "^9.2.2",
+		"ts-loader": "^9.2.8",
+		"typescript": "^4.6.4",
+		"webpack": "^5.70.0",
+		"webpack-cli": "^4.9.2",
+		"vsce": "^2.15.0"
+	},
+	"dependencies": {
+		"fs-extra": "^10.1.0",
+		"node-fetch": "^3.2.4",
+		"ssh-config": "^4.1.4"
+	},
+	"repository": {
+		"type": "git",
+		"url": "git://github.com/anyscale/vscode-anyscale-extension.git"
+	},
+	"__metadata": {
+		"id": "a0157bca-21f6-40a1-b580-fa0e5304f470",
+		"publisherId": "b96aef21-3633-4f8e-832f-a5188aef210a",
+		"publisherDisplayName": "anyscalecompute",
+		"targetPlatform": "universal",
+		"updated": false,
+		"isPreReleaseVersion": false,
+		"hasPreReleaseVersion": false,
+		"installedTimestamp": 1725737667132,
+		"pinned": false,
+		"source": "gallery"
+	}
+}

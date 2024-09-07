@@ -1,0 +1,43 @@
+0 verbose cli /usr/local/nvm/versions/node/v18.20.4/bin/node /usr/local/nvm/versions/node/v18.20.4/bin/npm
+1 info using npm@10.8.2
+2 info using node@v18.20.4
+3 silly config load:file:/usr/local/nvm/versions/node/v18.20.4/lib/node_modules/npm/npmrc
+4 silly config load:file:/home/.npmrc
+5 silly config load:file:/home/ally/.npmrc
+6 silly config load:file:/usr/local/nvm/versions/node/v18.20.4/etc/npmrc
+7 verbose title npm install
+8 verbose argv "install"
+9 verbose logfile logs-max:10 dir:/home/ally/.npm/_logs/2024-09-07T19_18_15_855Z-
+10 verbose logfile /home/ally/.npm/_logs/2024-09-07T19_18_15_855Z-debug-0.log
+11 silly packumentCache heap:2197815296 maxSize:549453824 maxEntrySize:274726912
+12 silly logfile start cleaning logs, removing 2 files
+13 silly logfile done cleaning log files
+14 silly idealTree buildDeps
+15 silly reify moves {}
+16 verbose stack Error: EACCES: permission denied, open '/home/package-lock.json'
+17 error code EACCES
+18 error syscall open
+19 error path /home/package-lock.json
+20 error errno -13
+21 error [Error: EACCES: permission denied, open '/home/package-lock.json'] {
+21 error   errno: -13,
+21 error   code: 'EACCES',
+21 error   syscall: 'open',
+21 error   path: '/home/package-lock.json'
+21 error }
+22 error
+22 error The operation was rejected by your operating system.
+22 error It is likely you do not have the permissions to access this file as the current user
+22 error
+22 error If you believe this might be a permissions issue, please double-check the
+22 error permissions of the file and its containing directories, or try running
+22 error the command again as root/Administrator.
+23 silly unfinished npm timer reify 1725736696328
+24 silly unfinished npm timer reify:save 1725736696359
+25 verbose cwd /home
+26 verbose os Linux 6.1.100+
+27 verbose node v18.20.4
+28 verbose npm  v10.8.2
+29 verbose exit -13
+30 verbose code -13
+31 error A complete log of this run can be found in: /home/ally/.npm/_logs/2024-09-07T19_18_15_855Z-debug-0.log

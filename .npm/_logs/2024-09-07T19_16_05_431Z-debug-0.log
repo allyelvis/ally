@@ -1,0 +1,107 @@
+0 verbose cli /usr/local/nvm/versions/node/v18.20.4/bin/node /usr/local/nvm/versions/node/v18.20.4/bin/npm
+1 info using npm@10.7.0
+2 info using node@v18.20.4
+3 silly config:load:file:/usr/local/nvm/versions/node/v18.20.4/lib/node_modules/npm/npmrc
+4 silly config:load:file:/home/ally/.npmrc
+5 silly config:load:file:/usr/local/nvm/versions/node/v18.20.4/etc/npmrc
+6 verbose title npm install npm@10.8.2
+7 verbose argv "install" "--global" "npm@10.8.2"
+8 verbose logfile logs-max:10 dir:/home/ally/.npm/_logs/2024-09-07T19_16_05_431Z-
+9 verbose logfile /home/ally/.npm/_logs/2024-09-07T19_16_05_431Z-debug-0.log
+10 silly logfile start cleaning logs, removing 4 files
+11 silly logfile done cleaning log files
+12 http fetch GET 200 https://registry.npmjs.org/npm 218ms (cache miss)
+13 silly idealTree buildDeps
+14 silly fetch manifest npm@10.8.2
+15 http fetch GET 200 https://registry.npmjs.org/npm 1008ms (cache miss)
+16 silly placeDep ROOT npm@10.8.2 OK for:  want: 10.8.2
+17 silly reify mark retired [
+17 silly reify   '/usr/local/nvm/versions/node/v18.20.4/lib/node_modules/npm',
+17 silly reify   '/usr/local/nvm/versions/node/v18.20.4/bin/npm',
+17 silly reify   '/usr/local/nvm/versions/node/v18.20.4/bin/npx'
+17 silly reify ]
+18 silly reify moves {
+18 silly reify   '/usr/local/nvm/versions/node/v18.20.4/lib/node_modules/npm': '/usr/local/nvm/versions/node/v18.20.4/lib/node_modules/.npm-CL89iPu1',
+18 silly reify   '/usr/local/nvm/versions/node/v18.20.4/bin/npm': '/usr/local/nvm/versions/node/v18.20.4/bin/.npm-3VgoaPWQ',
+18 silly reify   '/usr/local/nvm/versions/node/v18.20.4/bin/npx': '/usr/local/nvm/versions/node/v18.20.4/bin/.npx-rCvWPf1R'
+18 silly reify }
+19 silly tarball no local data for npm@https://registry.npmjs.org/npm/-/npm-10.8.2.tgz. Extracting by manifest.
+20 http fetch GET 200 https://registry.npmjs.org/npm/-/npm-10.8.2.tgz 1607ms (cache miss)
+21 silly CHANGE node_modules/npm
+22 silly CHANGE node_modules/npm/node_modules/@tufjs/models
+23 silly CHANGE node_modules/npm/node_modules/@sigstore/verify
+24 silly CHANGE node_modules/npm/node_modules/@sigstore/tuf
+25 silly CHANGE node_modules/npm/node_modules/@sigstore/sign
+26 silly CHANGE node_modules/npm/node_modules/@sigstore/protobuf-specs
+27 silly CHANGE node_modules/npm/node_modules/@sigstore/bundle
+28 silly CHANGE node_modules/npm/node_modules/@npmcli/redact
+29 silly CHANGE node_modules/npm/node_modules/@npmcli/promise-spawn
+30 silly CHANGE node_modules/npm/node_modules/@npmcli/package-json
+31 silly CHANGE node_modules/npm/node_modules/@npmcli/metavuln-calculator
+32 silly CHANGE node_modules/npm/node_modules/@npmcli/installed-package-contents
+33 silly CHANGE node_modules/npm/node_modules/@npmcli/git
+34 silly CHANGE node_modules/npm/node_modules/@npmcli/fs
+35 silly CHANGE node_modules/npm/node_modules/@npmcli/config
+36 silly CHANGE node_modules/npm/node_modules/@npmcli/arborist
+37 silly CHANGE node_modules/npm/node_modules/which
+38 silly CHANGE node_modules/npm/node_modules/validate-npm-package-name
+39 silly CHANGE node_modules/npm/node_modules/tuf-js
+40 silly CHANGE node_modules/npm/node_modules/ssri
+41 silly CHANGE node_modules/npm/node_modules/spdx-license-ids
+42 silly CHANGE node_modules/npm/node_modules/socks-proxy-agent
+43 silly CHANGE node_modules/npm/node_modules/sigstore
+44 silly CHANGE node_modules/npm/node_modules/semver
+45 silly REMOVE node_modules/npm/node_modules/semver/node_modules/lru-cache
+46 silly CHANGE node_modules/npm/node_modules/qrcode-terminal
+47 silly CHANGE node_modules/npm/node_modules/promzard
+48 silly CHANGE node_modules/npm/node_modules/postcss-selector-parser
+49 silly CHANGE node_modules/npm/node_modules/path-scurry
+50 silly CHANGE node_modules/npm/node_modules/pacote
+51 silly CHANGE node_modules/npm/node_modules/npm-user-validate
+52 silly CHANGE node_modules/npm/node_modules/npm-registry-fetch
+53 silly CHANGE node_modules/npm/node_modules/npm-profile
+54 silly CHANGE node_modules/npm/node_modules/npm-pick-manifest
+55 silly CHANGE node_modules/npm/node_modules/npm-bundled
+56 silly CHANGE node_modules/npm/node_modules/normalize-package-data
+57 silly CHANGE node_modules/npm/node_modules/nopt
+58 silly CHANGE node_modules/npm/node_modules/node-gyp
+59 silly CHANGE node_modules/npm/node_modules/mkdirp
+60 silly REMOVE node_modules/npm/node_modules/minipass-json-stream
+61 silly REMOVE node_modules/npm/node_modules/minipass-json-stream/node_modules/minipass
+62 silly CHANGE node_modules/npm/node_modules/minipass-fetch
+63 silly CHANGE node_modules/npm/node_modules/minipass
+64 silly CHANGE node_modules/npm/node_modules/minimatch
+65 silly CHANGE node_modules/npm/node_modules/libnpmversion
+66 silly CHANGE node_modules/npm/node_modules/libnpmteam
+67 silly CHANGE node_modules/npm/node_modules/libnpmsearch
+68 silly CHANGE node_modules/npm/node_modules/libnpmpublish
+69 silly CHANGE node_modules/npm/node_modules/libnpmpack
+70 silly CHANGE node_modules/npm/node_modules/libnpmorg
+71 silly CHANGE node_modules/npm/node_modules/libnpmhook
+72 silly CHANGE node_modules/npm/node_modules/libnpmfund
+73 silly CHANGE node_modules/npm/node_modules/libnpmexec
+74 silly CHANGE node_modules/npm/node_modules/libnpmdiff
+75 silly CHANGE node_modules/npm/node_modules/libnpmaccess
+76 silly CHANGE node_modules/npm/node_modules/json-parse-even-better-errors
+77 silly CHANGE node_modules/npm/node_modules/jackspeak
+78 silly REMOVE node_modules/npm/node_modules/is-core-module
+79 silly CHANGE node_modules/npm/node_modules/is-cidr
+80 silly CHANGE node_modules/npm/node_modules/init-package-json
+81 silly CHANGE node_modules/npm/node_modules/ini
+82 silly CHANGE node_modules/npm/node_modules/ignore-walk
+83 silly CHANGE node_modules/npm/node_modules/https-proxy-agent
+84 silly CHANGE node_modules/npm/node_modules/hosted-git-info
+85 silly REMOVE node_modules/npm/node_modules/hasown
+86 silly CHANGE node_modules/npm/node_modules/glob
+87 silly REMOVE node_modules/npm/node_modules/function-bind
+88 silly CHANGE node_modules/npm/node_modules/foreground-child
+89 silly CHANGE node_modules/npm/node_modules/debug
+90 silly CHANGE node_modules/npm/node_modules/cssesc
+91 silly CHANGE node_modules/npm/node_modules/cross-spawn/node_modules/which
+92 silly CHANGE node_modules/npm/node_modules/cmd-shim
+93 silly CHANGE node_modules/npm/node_modules/cidr-regex
+94 silly CHANGE node_modules/npm/node_modules/cacache
+95 silly REMOVE node_modules/npm/node_modules/builtins
+96 silly CHANGE node_modules/npm/node_modules/bin-links
+97 verbose exit 0
+98 info ok

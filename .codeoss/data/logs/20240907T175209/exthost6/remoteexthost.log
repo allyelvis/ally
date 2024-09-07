@@ -1,0 +1,8 @@
+2024-09-07 19:08:24.924 [info] Extension host with pid 64975 started
+2024-09-07 19:08:24.924 [error] Error: EEXIST: file already exists, open '/home/ally/.codeoss/data/User/workspaceStorage/6a334627/vscode.lock'
+2024-09-07 19:08:24.940 [info] Lock '/home/ally/.codeoss/data/User/workspaceStorage/6a334627/vscode.lock': Could not acquire lock, checking if the file is stale.
+2024-09-07 19:08:24.968 [info] Lock '/home/ally/.codeoss/data/User/workspaceStorage/6a334627/vscode.lock': The lock does not look stale, elapsed: 677 ms, giving up.
+2024-09-07 19:08:24.977 [info] Lock '/home/ally/.codeoss/data/User/workspaceStorage/6a334627-1/vscode.lock': Lock acquired.
+2024-09-07 19:23:58.078 [info] Extension host terminating: renderer disconnected for too long (2)
+2024-09-07 19:23:58.080 [info] Lock '/home/ally/.codeoss/data/User/workspaceStorage/6a334627-1/vscode.lock': Marking the lockfile as scheduled to be released in 6000 ms.
+2024-09-07 19:23:58.083 [info] Extension host with pid 64975 exiting with code 0

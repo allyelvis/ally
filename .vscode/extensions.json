@@ -1,0 +1,7 @@
+{
+    "recommendations": [
+        "github.vscode-pull-request-github",
+        "ms-azuretools.vscode-docker",
+        "redhat.vscode-xml"
+    ]
+}

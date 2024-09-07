@@ -1,0 +1,36 @@
+2024-09-07 18:50:54.250 [info] Expanding terminal instance, old id 6a334627-2 -> new id undefined
+2024-09-07 18:52:11.068 [warning] Persistent process "2": Process had no disconnect runners but was an orphan
+2024-09-07 18:52:11.068 [info] Persistent process reconnection "2"
+2024-09-07 18:52:18.224 [info] Persistent process "2": Replaying 6111 chars and 1 size events
+2024-09-07 19:06:02.030 [info] Expanding terminal instance, old id 6a334627-3 -> new id undefined
+2024-09-07 19:06:02.051 [info] Expanding terminal instance, old id 6a334627-4 -> new id undefined
+2024-09-07 19:06:02.052 [info] Expanding terminal instance, old id 6a334627-2 -> new id undefined
+2024-09-07 19:08:52.436 [warning] Persistent process "4": Process had no disconnect runners but was an orphan
+2024-09-07 19:08:52.436 [info] Persistent process reconnection "4"
+2024-09-07 19:08:52.701 [warning] Persistent process "3": Process had no disconnect runners but was an orphan
+2024-09-07 19:08:52.701 [info] Persistent process reconnection "3"
+2024-09-07 19:08:52.702 [warning] Persistent process "2": Process had no disconnect runners but was an orphan
+2024-09-07 19:08:52.702 [info] Persistent process reconnection "2"
+2024-09-07 19:09:13.363 [info] Persistent process "4": Replaying 38 chars and 1 size events
+2024-09-07 19:09:13.583 [info] Persistent process "3": Replaying 38 chars and 1 size events
+2024-09-07 19:09:13.593 [info] Persistent process "2": Replaying 5396 chars and 1 size events
+2024-09-07 19:19:47.719 [info] Expanding terminal instance, old id 6a334627-5 -> new id undefined
+2024-09-07 19:19:47.720 [info] Expanding terminal instance, old id 6a334627-3 -> new id undefined
+2024-09-07 19:19:47.720 [info] Expanding terminal instance, old id 6a334627-4 -> new id undefined
+2024-09-07 19:19:47.720 [info] Expanding terminal instance, old id 6a334627-2 -> new id undefined
+2024-09-07 19:23:15.811 [info] Expanding terminal instance, old id 6a334627-5 -> new id undefined
+2024-09-07 19:23:15.812 [info] Expanding terminal instance, old id 6a334627-3 -> new id undefined
+2024-09-07 19:23:15.812 [info] Expanding terminal instance, old id 6a334627-4 -> new id undefined
+2024-09-07 19:23:15.813 [info] Expanding terminal instance, old id 6a334627-2 -> new id undefined
+2024-09-07 19:26:43.041 [warning] Persistent process "5": Process had no disconnect runners but was an orphan
+2024-09-07 19:26:43.055 [info] Persistent process reconnection "5"
+2024-09-07 19:26:43.055 [warning] Persistent process "3": Process had no disconnect runners but was an orphan
+2024-09-07 19:26:43.055 [warning] Persistent process "4": Process had no disconnect runners but was an orphan
+2024-09-07 19:26:43.056 [warning] Persistent process "2": Process had no disconnect runners but was an orphan
+2024-09-07 19:26:43.056 [info] Persistent process reconnection "3"
+2024-09-07 19:26:43.056 [info] Persistent process reconnection "4"
+2024-09-07 19:26:43.056 [info] Persistent process reconnection "2"
+2024-09-07 19:27:05.433 [info] Persistent process "5": Replaying 38 chars and 1 size events
+2024-09-07 19:27:05.440 [info] Persistent process "3": Replaying 38 chars and 1 size events
+2024-09-07 19:27:05.440 [info] Persistent process "4": Replaying 138 chars and 1 size events
+2024-09-07 19:27:05.440 [info] Persistent process "2": Replaying 5269 chars and 1 size events

@@ -1,0 +1,48 @@
+0 verbose cli [ '/usr/bin/node', '/usr/bin/npm', 'run', 'build' ]
+1 info using npm@8.5.1
+2 info using node@v12.22.9
+3 timing npm:load:whichnode Completed in 0ms
+4 timing config:load:defaults Completed in 1ms
+5 timing config:load:file:/usr/share/nodejs/npm/npmrc Completed in 3ms
+6 timing config:load:builtin Completed in 3ms
+7 timing config:load:cli Completed in 2ms
+8 timing config:load:env Completed in 0ms
+9 timing config:load:file:/home/.npmrc Completed in 0ms
+10 timing config:load:project Completed in 2ms
+11 timing config:load:file:/home/ally/.npmrc Completed in 0ms
+12 timing config:load:user Completed in 0ms
+13 timing config:load:file:/etc/npmrc Completed in 0ms
+14 timing config:load:global Completed in 0ms
+15 timing config:load:validate Completed in 0ms
+16 timing config:load:credentials Completed in 1ms
+17 timing config:load:setEnvs Completed in 1ms
+18 timing config:load Completed in 12ms
+19 timing npm:load:configload Completed in 13ms
+20 timing npm:load:setTitle Completed in 1ms
+21 timing config:load:flatten Completed in 4ms
+22 timing npm:load:display Completed in 6ms
+23 verbose logfile /home/ally/.npm/_logs/2024-09-07T19_15_00_800Z-debug-0.log
+24 timing npm:load:logFile Completed in 12ms
+25 timing npm:load:timers Completed in 0ms
+26 timing npm:load:configScope Completed in 0ms
+27 timing npm:load Completed in 34ms
+28 silly logfile start cleaning logs, removing 1 files
+29 timing command:run Completed in 5ms
+30 verbose stack Error: ENOENT: no such file or directory, open '/home/package.json'
+31 verbose cwd /home
+32 verbose Linux 6.1.100+
+33 verbose argv "/usr/bin/node" "/usr/bin/npm" "run" "build"
+34 verbose node v12.22.9
+35 verbose npm  v8.5.1
+36 error code ENOENT
+37 error syscall open
+38 error path /home/package.json
+39 error errno -2
+40 error enoent ENOENT: no such file or directory, open '/home/package.json'
+41 error enoent This is related to npm not being able to find a file.
+41 error enoent
+42 verbose exit -2
+43 timing npm Completed in 242ms
+44 verbose code -2
+45 error A complete log of this run can be found in:
+45 error     /home/ally/.npm/_logs/2024-09-07T19_15_00_800Z-debug-0.log

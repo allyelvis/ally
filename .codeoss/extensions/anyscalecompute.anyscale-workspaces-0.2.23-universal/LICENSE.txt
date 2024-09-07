@@ -1,0 +1,17 @@
+AS License
+
+Copyright (2023) Anyscale, Inc.
+
+Definitions.
+
+Agreement: The agreement between Anyscale, Inc. and you governing the use of the Anyscale Services, located at www.anyscale.com/terms unless you have entered into a separate written agreement with Anyscale governing the use of the applicable Anyscale Services, in which case such agreement shall be the “Agreement”.
+
+Software: The source code and object code to which this license applies.
+
+Scope of Use. You may not use this Software except in connection with your use of the Anyscale Services pursuant to the Agreement. Your use of the Software must comply at all times with any restrictions applicable to the Anyscale Services generally and must be used in accordance with any applicable documentation. Without limiting the foregoing, you may view, use, copy, and modify the Software solely for the purposes of using the code within or connecting to the Anyscale Services. If you do not agree to these terms, you may not view, use, copy, or modify the Software.
+
+Termination. This license terminates automatically upon your breach of these terms or upon the termination of your Agreement. Additionally, Anyscale may terminate this license at any time on notice. Upon termination, you must permanently delete the Software and all copies thereof.
+
+DISCLAIMER; LIMITATION OF LIABILITY.
+
+THE SOFTWARE IS PROVIDED 'AS-IS' AND WITH ALL FAULTS. ANYSCALE, ON BEHALF OF ITSELF AND ITS LICENSORS, SPECIFICALLY DISCLAIMS ALL WARRANTIES RELATING TO THE SOFTWARE, EXPRESS AND IMPLIED, INCLUDING, WITHOUT LIMITATION, IMPLIED WARRANTIES, CONDITIONS AND OTHER TERMS OF MERCHANTABILITY, SATISFACTORY QUALITY OR FITNESS FOR A PARTICULAR PURPOSE, AND NON-INFRINGEMENT. ANYSCALE AND ITS LICENSORS TOTAL AGGREGATE LIABILITY RELATING TO OR ARISING OUT OF YOUR USE OF OR ANYSCALE'S PROVISIONING OF THE SOFTWARE SHALL BE LIMITED TO ONE THOUSAND ($1,000) DOLLARS.  IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
