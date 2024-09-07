@@ -9,3 +9,23 @@ The minikube profile 'cloud-run-dev-internal' has been scheduled to stop automat
 
 Update initiated
 Build started for artifact ally
+Build completed for artifact ally
+
+Deploy started
+Status check started
+Resource pod/ally-5b9d9f9c89-7b2fn status updated to In Progress
+Resource deployment/ally status updated to In Progress
+Resource deployment/ally status completed successfully
+Status check succeeded
+
+**************URLs*****************
+Deploy completed
+
+Forwarded URL from service ally: http://localhost:8080
+Debuggable container started pod/ally-5b9d9f9c89-7b2fn:ally-container (default)
+Update succeeded
+***********************************
+Watching for changes...
+To disable watch mode for subsequent runs, set watch to false in your launch configuration /home/ally/.vscode/launch.json and relaunch the application.
+
+Attached debugger to container "ally-5b9d9f9c89-7b2fn" successfully.

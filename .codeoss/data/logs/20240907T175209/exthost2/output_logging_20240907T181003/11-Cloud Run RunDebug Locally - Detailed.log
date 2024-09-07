@@ -111,3 +111,51 @@ found 0 vulnerabilities
 
  ---> 3034be845cdc
 Step 5/7 : COPY . .
+ ---> 67ba2b9d4c6e
+Step 6/7 : EXPOSE 5000
+ ---> Running in 435980cd4735
+ ---> 76ad924f34ce
+Step 7/7 : CMD ["node", "index.js"]
+ ---> Running in 4d895e2f6fc4
+ ---> 9b633b9e4e20
+Successfully built 9b633b9e4e20
+Successfully tagged ally:latest
+Build [ally] succeeded
+Build completed in 52.187 seconds
+Starting render...
+starting render process
+Render completed in 9.059888ms
+Tags used in deployment:
+ - ally -> ally:9b633b9e4e20e5a973f3cfaf75336c8b0ce3bd20138e1ed9f8f716c6e9913c2f
+Starting deploy...
+Configuring \"\" for node.js debugging
+\"ally-container\" requires debugging support image \"nodejs\"
+Configuring installation of debugging support files
+ - Warning: spec.template.spec.containers[0].env[4]: hides previous definition of "K_CONFIGURATION", which may be dropped when using apply
+ - Warning: spec.template.spec.containers[0].env[5]: hides previous definition of "K_REVISION", which may be dropped when using apply
+ - Warning: spec.template.spec.containers[0].env[6]: hides previous definition of "K_SERVICE", which may be dropped when using apply
+ - deployment.apps/ally created
+ - service/ally created
+Waiting for deployments to stabilize...
+ - deployment/ally: waiting for init container install-nodejs-debug-support to start
+    - pod/ally-5b9d9f9c89-7b2fn: waiting for init container install-nodejs-debug-support to start
+ - deployment/ally is ready.
+Deployments stabilized in 16.438 seconds
+Deploy completed in 17.547 seconds
+Port forwarding service/ally in namespace default, remote port 8080 -> http://127.0.0.1:8080
+Listing files to watch...
+ - ally
+Streaming logs from pod: ally-5b9d9f9c89-7b2fn container: ally-readiness-probe
+Streaming logs from pod: ally-5b9d9f9c89-7b2fn container: ally-container
+Streaming logs from pod: ally-5b9d9f9c89-7b2fn container: install-nodejs-debug-support
+List generated in 114.4189ms
+Press Ctrl+C to exit
+[ally-container]Debugger listening on ws://0.0.0.0:9229/67ebde63-b13a-4088-bef7-ff8715380b59
+[ally-container]For help, see: https://nodejs.org/en/docs/inspector
+[ally-container]Server is running on port 8080
+[ally-container]Error: SequelizeConnectionRefusedError: connect ECONNREFUSED 127.0.0.1:5432
+Watching for changes...
+[install-nodejs-debug-support]Installing runtime debugging support files in /dbg
+[install-nodejs-debug-support]Installation complete
+Port forwarding pod/ally-5b9d9f9c89-7b2fn in namespace default, remote port 9229 -> http://127.0.0.1:9229
+[ally-container]Debugger attached.
