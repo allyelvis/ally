@@ -1,25 +1,3 @@
-cd functions
-npm install express cors
-# Create Firebase Functions API handler
-cat <<EOF >index.js
-const functions = require('firebase-functions');
-const express = require('express');
-const app = express();
-app.use(express.json());
-
-// Define your routes here similar to the Express.js API
-let products = [];
-let orders = [];
-let accounting = [];
-
-// Add new product
-app.post('/products', (req, res) => {
-  const product = req.body;
-  products.push(product);
-  res.send({ message: 'Product added', product });
-});
-
-// List all products
 app.get('/products', (req, res) => {
   res.send(products);
 });
@@ -500,3 +478,23 @@ npm install
 node index.js
 cd ally
 ls -la
+git add .
+git commit -m"update"
+git status
+git push origin master
+git config --global user.name "allyelvis"
+git config --global user.email "allyelvis6569@gmail.com"
+git push origin master
+gh auth login
+git push origin master
+firebase login
+npm install -g firebase-tools
+firebase login
+npm init
+npm install
+firebase login
+nvm use 18
+gcloud config set project aenz-417404
+firebase login
+nvm use 18
+git add .

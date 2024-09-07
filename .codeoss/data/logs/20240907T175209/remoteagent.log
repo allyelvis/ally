@@ -250,3 +250,4 @@ Require stack:
 2024-09-07 19:36:40.710 [info] Renamed to /home/ally/.codeoss/extensions/ms-python.debugpy-2024.8.0-linux-x64
 2024-09-07 19:36:40.716 [info] Extracting extension completed. ms-python.debugpy
 2024-09-07 19:36:40.724 [info] Extension installed successfully: ms-python.debugpy
+2024-09-07 19:43:52.412 [info] [127.0.0.1][fa984dc8][ManagementConnection] The client has reconnected.

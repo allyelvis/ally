@@ -2,5 +2,23 @@
   "dependencies": {
     "cors": "^2.8.5",
     "express": "^4.19.2"
-  }
+  },
+  "name": "ally",
+  "version": "1.0.0",
+  "main": "index.js",
+  "devDependencies": {},
+  "scripts": {
+    "test": "npm test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/allyelvis/ally.git"
+  },
+  "author": "Ally Elvis Nzeyimana",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/allyelvis/ally/issues"
+  },
+  "homepage": "https://github.com/allyelvis/ally#readme",
+  "description": ""
 }
