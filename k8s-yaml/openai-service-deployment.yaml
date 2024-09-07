@@ -1,0 +1,70 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: openai-service-deployment
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: openai-service
+  template:
+    metadata:
+      labels:
+        app: openai-service
+    spec:
+      containers:
+      - name: openai-service
+        image: python:3.9-slim
+        command: ["python", "-u", "/app/openai_service.py"]
+        env:
+        - name: OPENAI_API_KEY
+          valueFrom:
+            secretKeyRef:
+              name: openai-secret
+              key: api-key
+        volumeMounts:
+        - mountPath: /app
+          name: app-volume
+      volumes:
+      - name: app-volume
+        configMap:
+          name: openai-service-config
+---
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: openai-service-config
+data:
+  openai_service.py: |
+    import os
+    import openai
+    from flask import Flask, request, jsonify
+
+    app = Flask(__name__)
+    openai.api_key = os.getenv("OPENAI_API_KEY")
+
+    @app.route('/generate', methods=['POST'])
+    def generate_code():
+        data = request.json
+        prompt = data.get("prompt", "")
+        response = openai.Completion.create(
+            engine="text-davinci-003",
+            prompt=prompt,
+            max_tokens=1500
+        )
+        return jsonify({"code": response.choices[0].text.strip()})
+
+    if __name__ == "__main__":
+        app.run(host="0.0.0.0", port=5000)
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: openai-service
+spec:
+  selector:
+    app: openai-service
+  ports:
+    - protocol: TCP
+      port: 5000
+      targetPort: 5000

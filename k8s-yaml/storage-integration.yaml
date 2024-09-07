@@ -1,0 +1,22 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: cloud-storage-config
+data:
+  provider: "gcp"  # Change to "aws" if using AWS S3
+  bucket-name: "aenzbi-app-storage"
+---
+apiVersion: batch/v1
+kind: Job
+metadata:
+  name: cloud-storage-setup
+spec:
+  template:
+    spec:
+      containers:
+      - name: setup-storage
+        image: google/cloud-sdk:slim  # Use AWS CLI image if using AWS
+        command: ["/bin/bash", "-c"]
+        args:
+          - gsutil mb gs://aenzbi-app-storage;  # Change to  if using AWS
+      restartPolicy: OnFailure
