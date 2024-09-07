@@ -56,3 +56,4 @@ Try `python -h' for more information.
 2024-09-07 18:14:09.913 [info] Python interpreter path: /bin/python
 2024-09-07 18:14:15.111 [info] Starting Jedi language server for ally.
 2024-09-07 18:32:48.370 [info] Discover tests for workspace name: undefined - uri: /User/settings.json
+2024-09-07 18:34:01.328 [info] Discover tests for workspace name: undefined - uri: /User/settings.json
