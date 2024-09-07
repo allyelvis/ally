@@ -159,3 +159,8 @@ Watching for changes...
 [install-nodejs-debug-support]Installation complete
 Port forwarding pod/ally-5b9d9f9c89-7b2fn in namespace default, remote port 9229 -> http://127.0.0.1:9229
 [ally-container]Debugger attached.
+[ally-container]Debugger ending on ws://0.0.0.0:9229/67ebde63-b13a-4088-bef7-ff8715380b59
+[ally-container]For help, see: https://nodejs.org/en/docs/inspector
+[ally-container]Debugger attached.
+[ally-container]Debugger ending on ws://0.0.0.0:9229/67ebde63-b13a-4088-bef7-ff8715380b59
+[ally-container]For help, see: https://nodejs.org/en/docs/inspector

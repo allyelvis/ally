@@ -498,3 +498,7 @@ for APP_NAME in "${!APPS[@]}"; do   APP_DIR="${APPS[$APP_NAME]}"   log "Processi
   build_app "$APP_NAME" "$APP_DIR"
   deploy_app "$APP_NAME" "$APP_DIR"
   if [ -f "$APP_DIR/package.json" ] || [ -f "$APP_DIR/setup.py" ]; then     publish_app "$APP_NAME" "$APP_DIR";   fi   log "$APP_NAME completed successfully"; done
+ls -la
+npm start
+npm init
+npm install
