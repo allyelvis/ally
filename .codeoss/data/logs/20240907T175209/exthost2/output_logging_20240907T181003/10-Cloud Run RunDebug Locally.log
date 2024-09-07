@@ -1,0 +1,11 @@
+Starting to debug the app using configuration 'Cloud Run: Run/Debug Locally' from .vscode/launch.json...
+To view more detailed logs, go to Output channel : "Cloud Run: Run/Debug Locally - Detailed"
+Dependency check started
+Dependency check succeeded
+Starting minikube, this may take a while...................................
+minikube successfully started
+The minikube profile 'cloud-run-dev-internal' has been scheduled to stop automatically after exiting Cloud Code. To disable this on future deployments, set autoStop to false in your launch configuration /home/ally/.vscode/launch.json
+
+
+Update initiated
+Build started for artifact ally

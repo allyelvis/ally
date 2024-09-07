@@ -1,0 +1,113 @@
+Running skaffold command: /usr/bin/skaffold init --artifact {"image":"ally","builder":"Docker","payload":{"path":"accounting-inventory-system/backend/Dockerfile"}} --kubernetes-manifest /tmp/cloud-code-cloud-run-87gojh/pods_and_services.yaml --filename /tmp/cloud-code-cloud-run-87gojh/skaffold.yaml --force
+Setting build tagPolicy to SHA256.
+Setting statusCheckDeadlineSeconds to 5 minutes
+Setting build environment to 'local'
+Created the file /tmp/cloud-code-cloud-run-87gojh/skaffold.yaml.
+Running gcloud command: /usr/bin/gcloud alpha code export --readiness-probe --service-name ally --image ally --no-skaffold-file --dockerfile= --kubernetes-file /tmp/cloud-code-cloud-run-87gojh/pods_and_services.yaml --env-vars K_SERVICE=ally,K_REVISION=local,K_CONFIGURATION=ally --memory 256Mi --quiet --verbosity warning
+Created the file /tmp/cloud-code-cloud-run-87gojh/pods_and_services.yaml.
+Running: skaffold debug -v info --port-forward --auto-build --auto-deploy --auto-sync --rpc-http-port 40227 --filename /tmp/cloud-code-cloud-run-87gojh/skaffold.yaml --kube-context cloud-run-dev-internal --minikube-profile cloud-run-dev-internal --status-check\=true
+Activated kube-context \"cloud-run-dev-internal\"
+starting gRPC server on port 40781
+starting gRPC HTTP server on port 40227 (proxying to 40781)
+Skaffold &{Version:v2.13.1 ConfigVersion:skaffold/v4beta11 GitVersion: GitCommit:9bf608b553673654891eaa4d79ef84b21749ef0c BuildDate:2024-07-26T07:49:00Z GoVersion:go1.22.4 Compiler:gc Platform:linux/amd64 User:}
+Loaded Skaffold defaults from \"/home/ally/.skaffold/config\"
+map entry found when executing locate for &{ally accounting-inventory-system/backend <nil> {0xc000aaa0b0 <nil> <nil> <nil> <nil> <nil> <nil>} [] {[] []} [] } of type *latest.Artifact and pointer: 824644923040
+Using kubectl context: cloud-run-dev-internal
+Using minikube docker daemon at tcp://192.168.49.2:2376
+no kpt renderer or deployer found, skipping hydrated-dir creation
+build concurrency first set to 1 parsed from *runner.pipelineBuilderWithHooks[0]
+final build concurrency value is 1
+Tags generated in 143.984µs
+Generating tags...
+ - ally -> ally:latest
+Checking cache...
+ - ally: Not found. Building
+Starting build...
+Found [cloud-run-dev-internal] context, using local docker daemon.
+Building [ally]...
+Target platforms: [linux/amd64]
+Cache check completed in 1.537 second
+Creating tar file from 5205 file(s)
+Added 520/5205 files to tar file
+Added 1040/5205 files to tar file
+Added 1560/5205 files to tar file
+Sending build context to Docker daemon  547.3kBSending build context to Docker daemon  3.798MBSending build context to Docker daemon  4.847MBSending build context to Docker daemon  5.919MBSending build context to Docker daemon  9.678MBAdded 2080/5205 files to tar file
+Sending build context to Docker daemon  10.73MBAdded 2600/5205 files to tar file
+Sending build context to Docker daemon  15.09MBAdded 3120/5205 files to tar file
+Sending build context to Docker daemon  21.03MBAdded 3640/5205 files to tar file
+Sending build context to Docker daemon  24.23MBAdded 4160/5205 files to tar file
+Sending build context to Docker daemon  27.93MBAdded 4680/5205 files to tar file
+Sending build context to Docker daemon  30.05MBAdded 5200/5205 files to tar file
+Creating tar file completed in 1.216 second
+Sending build context to Docker daemon  30.37MB
+Step 1/7 : FROM node:14
+14: Pulling from library/node
+2ff1d7c41c74: Pulling fs layer
+b253aeafeaa7: Pulling fs layer
+3d2201bd995c: Pulling fs layer
+1de76e268b10: Pulling fs layer
+d9a8df589451: Pulling fs layer
+6f51ee005dea: Pulling fs layer
+5f32ed3c3f27: Pulling fs layer
+0c8cc2f24a4d: Pulling fs layer
+0d27a8e86132: Pulling fs layer
+1de76e268b10: Waiting
+d9a8df589451: Waiting
+6f51ee005dea: Waiting
+5f32ed3c3f27: Waiting
+0c8cc2f24a4d: Waiting
+0d27a8e86132: Waiting
+b253aeafeaa7: Verifying Checksum
+b253aeafeaa7: Download complete
+3d2201bd995c: Verifying Checksum
+3d2201bd995c: Download complete
+2ff1d7c41c74: Verifying Checksum
+2ff1d7c41c74: Download complete
+6f51ee005dea: Verifying Checksum
+6f51ee005dea: Download complete
+1de76e268b10: Verifying Checksum
+1de76e268b10: Download complete
+0c8cc2f24a4d: Verifying Checksum
+0c8cc2f24a4d: Download complete
+5f32ed3c3f27: Verifying Checksum
+5f32ed3c3f27: Download complete
+0d27a8e86132: Verifying Checksum
+0d27a8e86132: Download complete
+d9a8df589451: Verifying Checksum
+d9a8df589451: Download complete
+2ff1d7c41c74: Pull complete
+b253aeafeaa7: Pull complete
+3d2201bd995c: Pull complete
+1de76e268b10: Pull complete
+d9a8df589451: Pull complete
+6f51ee005dea: Pull complete
+5f32ed3c3f27: Pull complete
+0c8cc2f24a4d: Pull complete
+0d27a8e86132: Pull complete
+Digest: sha256:a158d3b9b4e3fa813fa6c8c590b8f0a860e015ad4e59bbce5744d2f6fd8461aa
+Status: Downloaded newer image for node:14
+ ---> 1d12470fa662
+Step 2/7 : WORKDIR /usr/src/app
+ ---> Running in 31f8ef5f5161
+ ---> 1e6b5967ddff
+Step 3/7 : COPY package*.json ./
+ ---> 08ee0f854ebc
+Step 4/7 : RUN npm install
+ ---> Running in bfe5ee84a40d
+[91mnpm WARN read-shrinkwrap This version of npm is compatible with lockfileVersion@1, but package-lock.json was generated for lockfileVersion@3. I'll try to do my best with it!
+[0m
+> es5-ext@0.10.64 postinstall /usr/src/app/node_modules/es5-ext
+>  node -e "try{require('./_postinstall')}catch(e){}" || exit 0
+
+[91mnpm WARN backend@1.0.0 No description
+[0m[91mnpm WARN backend@1.0.0 No repository field.
+[0m[91m
+[0madded 196 packages from 193 contributors and audited 196 packages in 9.571s
+
+30 packages are looking for funding
+  run `npm fund` for details
+
+found 0 vulnerabilities
+
+ ---> 3034be845cdc
+Step 5/7 : COPY . .
