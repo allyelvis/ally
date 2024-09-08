@@ -610,3 +610,4 @@ install_dependencies
 create_app_structure
 build_and_run
 ls -la
+git pull origin master
