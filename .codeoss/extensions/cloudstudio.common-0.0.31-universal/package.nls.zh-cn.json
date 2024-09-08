@@ -1,0 +1,15 @@
+{
+	"displayName": "Cloud Studio Common",
+	"description": "本插件为 Cloud Studio 的 Web 集成提供了支持。",
+	"command.setSession": "设置登录会话信息",
+	"command.getPublicConfig": "获取公共配置",
+	"command.turnOnEncryption": "开启代码加密",
+	"command.turnOnEncryption.message.info": "代码加密开启完成",
+	"icon.cloudstudio-icon": "Cloud Studio 图标",
+	"view.workbench.scm.missing": "安装 Git (一种流行的源代码管理系统)，以跟踪代码更改并与他人协作。",
+	"view.workbench.scm.disabled": "如果要使用 git 功能，请在[设置](command:workbench.action.openSettings?%5B%22git.enabled%22%5D)中启用 git。",
+	"view.workbench.scm.empty": "为了使用 git 功能，可打开包含 git 仓库的文件夹或从 URL 克隆。\r\n[打开文件夹](command:vscode.openFolder)\r\n[克隆仓库](command:git.clone)",
+	"view.workbench.scm.folder": "当前打开的文件夹中没有 Git 仓库。可初始化一个仓库，它将实现 Git 提供支持的源代码管理功能。\r\n[初始化仓库](command:git.init?%5Btrue%5D)",
+	"view.workbench.scm.workspace": "当前打开的工作区中没有任何包含 Git 仓库的文件夹。可初始化某文件夹上的一个仓库，该仓库将实现 Git 提供支持的源代码管理功能。\r\n[初始化仓库](command:git.init)",
+	"view.workbench.scm.emptyWorkspace": "当前打开的工作区没有任何包含 git 存储库的文件夹。\r\n[将文件夹添加到工作区](command:workbench.action.addRootFolder)"
+}

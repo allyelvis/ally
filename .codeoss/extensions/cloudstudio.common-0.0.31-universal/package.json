@@ -1,0 +1,130 @@
+{
+	"name": "common",
+	"displayName": "%displayName%",
+	"description": "%description%",
+	"publisher": "CloudStudio",
+	"version": "0.0.31",
+	"scripts": {
+		"vscode:prepublish": "yarn compile",
+		"package": "vsce package --allow-star-activation --yarn",
+		"compile-web": "webpack -c extension-browser.webpack.config.js --mode production",
+		"compile-node": "webpack -c extension.webpack.config.js --mode production",
+		"compile": "yarn compile-node && yarn compile-web ",
+		"watch-web": "webpack --watch -c extension-browser.webpack.config.js",
+		"watch-node": "webpack --watch -c extension.webpack.config.js",
+		"watch": "webpack --watch -c extension.webpack.config.js",
+		"update:font": "node ./build/update-font.js",
+		"show:font": "open ./resources/font/cloudstudio.html",
+		"start": "../../vendor/modules/code-oss-dev/scripts/code-server.sh --extensions-dir '..' --window-indicator-label '$(cloudstudio-icon) Cloud Studio'"
+	},
+	"main": "./dist/extension.js",
+	"browser": "./dist/browser/extension.js",
+	"icon": "resources/icons/logo.png",
+	"repository": {
+		"type": "git",
+		"url": "https://devops.codingcorp.net/p/cloud-studio-next/d/cloud-studio-extensions/git"
+	},
+	"license": "MIT",
+	"engines": {
+		"vscode": "^1.56.0"
+	},
+	"categories": [
+		"Other"
+	],
+	"enabledApiProposals": [
+		"contribViewsWelcome"
+	],
+	"activationEvents": [
+		"*"
+	],
+	"capabilities": {
+		"virtualWorkspaces": true,
+		"untrustedWorkspaces": {
+			"supported": true
+		}
+	},
+	"contributes": {
+		"icons": {
+			"cloudstudio-icon": {
+				"description": "%icon.cloudstudio-icon%",
+				"default": {
+					"fontPath": "./resources/font/cloudstudio.woff",
+					"fontCharacter": "\\E000"
+				}
+			}
+		},
+		"commands": [
+			{
+				"command": "cloudstudio.turnOnEncryption",
+				"title": "%command.turnOnEncryption%",
+				"category": "Cloud Studio"
+			}
+		],
+		"authentication": [
+			{
+				"label": "CloudStudio",
+				"id": "cloudstudio"
+			}
+		],
+		"viewsWelcome": [
+			{
+				"view": "scm",
+				"contents": "%view.workbench.scm.disabled%",
+				"when": "!config.git.enabled"
+			},
+			{
+				"view": "scm",
+				"contents": "%view.workbench.scm.missing%",
+				"when": "config.git.enabled && git.missing"
+			},
+			{
+				"view": "scm",
+				"contents": "%view.workbench.scm.empty%",
+				"when": "config.git.enabled && !git.missing && workbenchState == empty",
+				"enablement": "git.state == initialized",
+				"group": "2_open@1"
+			},
+			{
+				"view": "scm",
+				"contents": "%view.workbench.scm.workspace%",
+				"when": "config.git.enabled && !git.missing && workbenchState == workspace && workspaceFolderCount != 0 && remoteName != 'codespaces'",
+				"enablement": "git.state == initialized",
+				"group": "5_scm@1"
+			},
+			{
+				"view": "scm",
+				"contents": "%view.workbench.scm.emptyWorkspace%",
+				"when": "config.git.enabled && !git.missing && workbenchState == workspace && workspaceFolderCount == 0",
+				"enablement": "git.state == initialized",
+				"group": "2_open@1"
+			}
+		]
+	},
+	"dependencies": {
+		"@malagu/core": "2.22.9",
+		"@malagu/web": "2.22.9",
+		"@types/vscode": "^1.64.0",
+		"axios": "^0.27.2",
+		"vscode-nls-i18n": "^0.2.4"
+	},
+	"devDependencies": {
+		"@types/node": "^16.11.27",
+		"open": "^8.4.0",
+		"uglifyjs-webpack-plugin": "^2.2.0",
+		"webfont": "^11.2.26",
+		"webpack": "^5.69.1",
+		"webpack-cli": "^4.9.2"
+	},
+	"__metadata": {
+		"id": "00c21616-8c99-45b9-882a-3e1e4615e61b",
+		"publisherId": "c1dd5d73-be7b-4ba0-ba38-3be50ebd70a9",
+		"publisherDisplayName": "cloudstudio",
+		"targetPlatform": "universal",
+		"updated": false,
+		"isPreReleaseVersion": false,
+		"hasPreReleaseVersion": false,
+		"installedTimestamp": 1725756963255,
+		"pinned": false,
+		"source": "gallery"
+	}
+}

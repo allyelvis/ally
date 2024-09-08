@@ -1,0 +1,50 @@
+{
+	"displayName": "Cloud Studio Common",
+	"description": "This extension provides support for Cloud Stuido Web integration.",
+	"command.setSession": "Set login session information",
+	"command.getPublicConfig": "Get Public Config",
+	"command.turnOnEncryption": "Turn on code encryption",
+	"command.turnOnEncryption.message.info": "Code encryption is turned on",
+	"icon.cloudstudio-icon": "Cloud Studio Icon",
+	"view.workbench.scm.missing": "Install Git, a popular source control system, to track code changes and collaborate with others.",
+	"view.workbench.scm.disabled": {
+		"message": "If you would like to use git features, please enable git in your [settings](command:workbench.action.openSettings?%5B%22git.enabled%22%5D).",
+		"comment": [
+			"{Locked='](command:workbench.action.openSettings?%5B%22git.enabled%22%5D'}",
+			"Do not translate the 'command:*' part inside of the '(..)'. It is an internal command syntax for VS Code",
+			"Please make sure there is no space between the right bracket and left parenthesis:  ]( this is an internal syntax for links"
+		]
+	},
+	"view.workbench.scm.empty": {
+		"message": "In order to use git features, you can open a folder containing a git repository or clone from a URL.\n[Open Folder](command:vscode.openFolder)\n[Clone Repository](command:git.clone)",
+		"comment": [
+			"{Locked='](command:vscode.openFolder'}",
+			"Do not translate the 'command:*' part inside of the '(..)'. It is an internal command syntax for VS Code",
+			"Please make sure there is no space between the right bracket and left parenthesis:  ]( this is an internal syntax for links"
+		]
+	},
+	"view.workbench.scm.folder": {
+		"message": "The folder currently open doesn't have a git repository. You can initialize a repository which will enable source control features powered by git.\n[Initialize Repository](command:git.init?%5Btrue%5D)",
+		"comment": [
+			"{Locked='](command:git.init?%5Btrue%5D'}",
+			"Do not translate the 'command:*' part inside of the '(..)'. It is an internal command syntax for VS Code",
+			"Please make sure there is no space between the right bracket and left parenthesis:  ]( this is an internal syntax for links"
+		]
+	},
+	"view.workbench.scm.workspace": {
+		"message": "The workspace currently open doesn't have any folders containing git repositories. You can initialize a repository on a folder which will enable source control features powered by git.\n[Initialize Repository](command:git.init)",
+		"comment": [
+			"{Locked='](command:git.init'}",
+			"Do not translate the 'command:*' part inside of the '(..)'. It is an internal command syntax for VS Code",
+			"Please make sure there is no space between the right bracket and left parenthesis:  ]( this is an internal syntax for links"
+		]
+	},
+	"view.workbench.scm.emptyWorkspace": {
+		"message": "The workspace currently open doesn't have any folders containing git repositories.\n[Add Folder to Workspace](command:workbench.action.addRootFolder)",
+		"comment": [
+			"{Locked='](command:workbench.action.addRootFolder'}",
+			"Do not translate the 'command:*' part inside of the '(..)'. It is an internal command syntax for VS Code",
+			"Please make sure there is no space between the right bracket and left parenthesis:  ]( this is an internal syntax for links"
+		]
+	}
+}
