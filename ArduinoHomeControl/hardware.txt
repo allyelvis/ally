@@ -1,0 +1,4 @@
+Arduino model: Arduino Uno
+Relay module: [Relay model]
+Power supply: [Power supply details]
+Sensors: [List of sensors]
