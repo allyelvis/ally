@@ -1,0 +1,223 @@
+{
+	"name": "manim-sideview",
+	"displayName": "Manim Sideview",
+	"icon": "assets/images/logo.png",
+	"description": "Video/Image live previews and code snippets for manim.",
+	"repository": {
+		"url": "https://github.com/Rickaym/Manim-Sideview",
+		"type": "git",
+		"directory": "src"
+	},
+	"author": {
+		"name": "Ricky",
+		"url": "https://github.com/Rickaym"
+	},
+	"version": "0.1.5",
+	"publisher": "Rickaym",
+	"engines": {
+		"vscode": "^1.62.3"
+	},
+	"categories": [
+		"Visualization",
+		"Other"
+	],
+	"keywords": [
+		"manim",
+		"animations",
+		"manim sideview"
+	],
+	"activationEvents": [
+		"onCommand:manim-sideview.run",
+		"onCommand:manim-sideview.stop",
+		"onCommand:manim-sideview.removeAllJobs",
+		"onCommand:manim-sideview.removeCurrentJob",
+		"onCommand:manim-sideview.renderNewScene",
+		"onCommand:manim-sideview.showMobjectGallery",
+		"onCommand:manim-sideview.syncMobjectGallery",
+		"onCommand:manim-sideview.syncManimConfig",
+		"onCommand:manim-sideview.showOutputChannel",
+		"onCommand:manim-sideview.showExtensionManimConfig",
+		"onCommand:manim-sideview.showManimExecTerminal"
+	],
+	"main": "./out/extension.js",
+	"contributes": {
+		"configuration": {
+			"properties": {
+				"manim-sideview.defaultManimPath": {
+					"type": "string",
+					"default": "manim",
+					"description": "The absolute path to the manim executable."
+				},
+				"manim-sideview.commandLineArgs": {
+					"type": "string",
+					"description": "Refer to the manim documentation for existing CLI args."
+				},
+				"manim-sideview.runOnSave": {
+					"type": "boolean",
+					"default": "false",
+					"description": "Whether to run on save for a file that has been run before."
+				},
+				"manim-sideview.focusOutputOnRun": {
+					"type": "boolean",
+					"default": "true",
+					"description": "Whether to focus on the output when run."
+				},
+				"manim-sideview.previewShowProgressOnIdle": {
+					"type": "boolean",
+					"default": "true",
+					"description": "Whether to display the video progress bar in the video player when the job is idle."
+				},
+				"manim-sideview.previewProgressColor": {
+					"type": "string",
+					"default": "textLink.foreground",
+					"description": "The color of the progress bar. You can use theme colors here. Either specify hex colors `#F1F1F1` or theme colors `button.border`"
+				},
+				"manim-sideview.previewAutoPlay": {
+					"type": "boolean",
+					"default": "true",
+					"description": "Whether to auto-play the preview right after rendering."
+				},
+				"manim-sideview.previewLooping": {
+					"type": "boolean",
+					"default": "true",
+					"description": "Whether to loop the preview at the end."
+				},
+				"manim-sideview.outputToTerminal": {
+					"type": "boolean",
+					"default": "true",
+					"description": "Whether to relay output to a terminal. If False, an output channel rather than a terminal is used to display text."
+				},
+				"manim-sideview.manimExecutableVersion": {
+					"type": "string",
+					"default": "v0.16.0.post0",
+					"description": "The manim executable version that runs on the extension."
+				},
+				"manim-sideview.terminalCommand": {
+					"type": "string",
+					"description": "A terminal command to invoke after a render is called. Available variables are: {outputPath}, {sourcePath} and {sceneName}."
+				},
+				"manim-sideview.autoPreview": {
+					"type": "boolean",
+					"default": "true",
+					"description": "Whether to display the preview after being rendered."
+				}
+			}
+		},
+		"menus": {
+			"editor/title": [
+				{
+					"command": "manim-sideview.run",
+					"when": "editorIsOpen && editorLangId == python",
+					"group": "navigation"
+				}
+			]
+		},
+		"commands": [
+			{
+				"command": "manim-sideview.run",
+				"title": "Manim: Runs a Sideview",
+				"icon": {
+					"light": "./assets/images/rotation.png",
+					"dark": "./assets/images/rotation.png"
+				}
+			},
+			{
+				"command": "manim-sideview.stop",
+				"title": "Manim: Stops Running Processes"
+			},
+			{
+				"command": "manim-sideview.removeAllJobs",
+				"title": "Manim: Removes All Active Jobs"
+			},
+			{
+				"command": "manim-sideview.removeCurrentJob",
+				"title": "Manim: Removes The Current File's Active Job"
+			},
+			{
+				"command": "manim-sideview.renderNewScene",
+				"title": "Manim: Renders a New Scene"
+			},
+			{
+				"command": "manim-sideview.showMobjectGallery",
+				"title": "Manim: Open Mobject Gallery"
+			},
+			{
+				"command": "manim-sideview.syncMobjectGallery",
+				"title": "Manim: Find Mobject Gallery Updates"
+			},
+			{
+				"command": "manim-sideview.syncManimConfig",
+				"title": "Manim: Updates Internal Manim Config With Local Executable"
+			},
+			{
+				"command": "manim-sideview.showOutputChannel",
+				"title": "Manim: Show Output Channel"
+			},
+			{
+				"command": "manim-sideview.showExtensionManimConfig",
+				"title": "Manim: Show Extension's internal Manim Config"
+			},
+			{
+				"command": "manim-sideview.showManimExecTerminal",
+				"title": "Manim: Show Extension's internal execution terminal"
+			}
+		],
+		"keybindings": [
+			{
+				"command": "manim-sideview.run",
+				"key": "ctrl+' r",
+				"when": "editorFocus"
+			},
+			{
+				"command": "manim-sideview.stop",
+				"key": "ctrl+' x",
+				"when": "editorFocus"
+			},
+			{
+				"command": "manim-sideview.renderNewScene",
+				"key": "ctrl+' c"
+			}
+		]
+	},
+	"scripts": {
+		"vscode:prepublish": "npm run compile",
+		"compile": "tsc -p ./",
+		"watch": "tsc -watch -p ./",
+		"pretest": "npm run compile && npm run lint",
+		"lint": "eslint src --ext ts",
+		"test": "node ./out/test/runTest.js"
+	},
+	"devDependencies": {
+		"@types/glob": "^8.0.0",
+		"@types/mocha": "^10.0.0",
+		"@types/node": "^18.8.0",
+		"@types/node-fetch": "^3.0.3",
+		"@types/vscode": "^1.62.3",
+		"@typescript-eslint/eslint-plugin": "^5.38.1",
+		"@typescript-eslint/parser": "^5.38.1",
+		"@vscode/test-electron": "^2.1.5",
+		"electron-rebuild": "^3.2.9",
+		"esbuild": "^0.15.10",
+		"eslint": "^8.24.0",
+		"glob": "^8.0.3",
+		"mocha": "^10.0.0",
+		"typescript": "^4.8.4"
+	},
+	"dependencies": {
+		"axios": "^0.27.2",
+		"@vscode/codicons": "0.0.32",
+		"yaml": "^2.1.2"
+	},
+	"__metadata": {
+		"id": "17662f4e-55a1-4631-aff1-eb04300e62f3",
+		"publisherId": "4e18016d-64ad-4f38-824a-b9f1b519a8be",
+		"publisherDisplayName": "Rickaym",
+		"targetPlatform": "universal",
+		"updated": false,
+		"isPreReleaseVersion": false,
+		"hasPreReleaseVersion": false,
+		"installedTimestamp": 1726184077747,
+		"pinned": false,
+		"source": "gallery"
+	}
+}
