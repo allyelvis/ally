@@ -1,0 +1,8 @@
+version: '3'
+services:
+  aenzbiapp:
+    build: .
+    ports:
+      - "8000:8000"
+    environment:
+      - NAME=AenzbiApp
