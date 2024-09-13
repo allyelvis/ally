@@ -1,527 +1,501 @@
-NC='\033[0m' # No Color
-echo -e "${GREEN}Starting setup for $PROJECT_NAME...${NC}"
-# Step 1: Install Dependencies
-echo -e "${GREEN}Step 1: Installing system dependencies...${NC}"
-sudo apt update
-#!/bin/bash
-# Define variables
-DIRECTORY_PATH="dcqacj/home/"  # Change this to your desired directory path
-PERMISSIONS=755                      # Define the desired permissions (755 is common for web directories)
-# Check if the directory already exists
-if [ -d "$DIRECTORY_PATH" ]; then   echo "Directory already exists: $DIRECTORY_PATH"; else
-  mkdir -p "$DIRECTORY_PATH";   if [ $? -eq 0 ]; then     echo "Directory created successfully: $DIRECTORY_PATH"    
-    chmod $PERMISSIONS "$DIRECTORY_PATH";     if [ $? -eq 0 ]; then       echo "Permissions set to $PERMISSIONS for $DIRECTORY_PATH";     else       echo "Failed to set permissions on $DIRECTORY_PATH";     fi   else     echo "Failed to create directory: $DIRECTORY_PATH";     exit 1;   fi; fi
-# Verify directory creation
-if [ -d "$DIRECTORY_PATH" ]; then   echo "Verification successful: Directory exists."; else   echo "Verification failed: Directory does not exist.";   exit 1; fi
-ls -la
-cd dcqacj/home/aenzbi.bi
-cd aenzbi.bi
-cd home
-cd
-#!/bin/bash
-# Define variables
-DIRECTORY_PATH="/path/to/directory"  # Change this to your desired directory path
-PERMISSIONS=755                      # Define the desired permissions (755 is common for web directories)
-# Check if the directory already exists
-if [ -d "$DIRECTORY_PATH" ]; then   echo "Directory already exists: $DIRECTORY_PATH"; else
-  mkdir -p "$DIRECTORY_PATH";   if [ $? -eq 0 ]; then     echo "Directory created successfully: $DIRECTORY_PATH"    
-    chmod $PERMISSIONS "$DIRECTORY_PATH";     if [ $? -eq 0 ]; then       echo "Permissions set to $PERMISSIONS for $DIRECTORY_PATH";     else       echo "Failed to set permissions on $DIRECTORY_PATH";     fi   else     echo "Failed to create directory: $DIRECTORY_PATH";     exit 1;   fi; fi
-#!/bin/bash
-# Define variables
-DIRECTORY_PATH="/path/to/directory"  # Change this to your desired directory path
-PERMISSIONS=755                      # Define the desired permissions (755 is common for web directories)
-# Check if the directory already exists
-if [ -d "$DIRECTORY_PATH" ]; then   echo "Directory already exists: $DIRECTORY_PATH"; else
-  mkdir -p "$DIRECTORY_PATH";   if [ $? -eq 0 ]; then     echo "Directory created successfully: $DIRECTORY_PATH"    
-    chmod $PERMISSIONS "$DIRECTORY_PATH";     if [ $? -eq 0 ]; then       echo "Permissions set to $PERMISSIONS for $DIRECTORY_PATH";     else       echo "Failed to set permissions on $DIRECTORY_PATH";     fi   else     echo "Failed to create directory: $DIRECTORY_PATH";     exit 1;   fi; fi
-#!/bin/bash
-# Check if the script is run with root privileges
-if [ "$EUID" -ne 0 ]; then   echo "Please run as root or with sudo.";   exit 1; fi
-#!/bin/bash
-# Function to check if a package is installed and install if missing
-check_and_install() {   package=$1;   if ! dpkg -s $package &> /dev/null; then     echo "$package is not installed. Installing...";     sudo apt-get update;     sudo apt-get install -y $package || handle_error "Failed to install $package";     echo "$package installed successfully.";   else     echo "$package is already installed.";   fi; }
-# Function to check if sudo is installed and install it if necessary
-check_sudo() {   if ! command -v sudo &> /dev/null; then     echo "sudo is not installed. Installing sudo...";     apt-get update;     apt-get install -y sudo || { echo "Failed to install sudo. Please install it manually."; exit 1; };     echo "sudo installed successfully.";   else     echo "sudo is already installed.";   fi; }
-# Function to generate the Python script
-generate_python_script() {   echo "Generating Python script...";   python_script="app/main.py"
-  cat > $python_script <<EOL# Demo Python Script
-def main():
-    print("Hello, this is a demo Python script.")
+    ./setup_game.sh
+    \`\`\`
+    This will create the necessary files and directories.
 
-if __name__ == "__main__":
-    main()
-EOL
-   echo "Python script created at $python_script"; }
-# Function to generate HTML file
-generate_html() {   echo "Generating HTML file...";   html_file="app/index.html"
-  cat > $html_file <<EOL<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="styles.css">
-    <title>Demo Page</title>
-</head>
-<body>
-    <h1>Hello from the Demo Page!</h1>
-    <p>This is a simple HTML file.</p>
-    <script src="script.js"></script>
-</body>
-</html>
-EOL
-   echo "HTML file created at $html_file"; }
-# Function to generate CSS file
-generate_css() {   echo "Generating CSS file...";   css_file="app/styles.css"
-  cat > $css_file <<EOL/* Demo CSS File */
-body {
-    font-family: Arial, sans-serif;
-    background-color: #f0f0f0;
-    color: #333;
-}
-
-h1 {
-    color: #2c3e50;
-}
-EOL
-   echo "CSS file created at $css_file"; }
-# Function to generate JavaScript file
-generate_js() {   echo "Generating JavaScript file...";   js_file="app/script.js"
-  cat > $js_file <<EOL// Demo JavaScript File
-document.addEventListener("DOMContentLoaded", () => {
-    console.log("JavaScript loaded and running.");
-});
-EOL
-   echo "JavaScript file created at $js_file"; }
-# Function to generate a README file
-generate_readme() {   echo "Generating README file...";   readme_file="app/README.md"
-  cat > $readme_file <<EOL# Demo Project
-
-This is a demo project with the following components:
-- **Python Script:** \`main.py\`
-- **HTML File:** \`index.html\`
-- **CSS File:** \`styles.css\`
-- **JavaScript File:** \`script.js\`
-
-## How to Run
-1. Run the Python script:
+2. **Play the Game**:
+    After the setup, navigate to the game directory and start the game:
     \`\`\`bash
-    python3 main.py
+    cd echoes_of_innovation_game
+    ./echoes_of_innovation.py
     \`\`\`
 
-2. Open the \`index.html\` file in your web browser.
+## Features
+- Explore a futuristic metropolis and search for hidden artifacts.
+- Solve puzzles to unlock advanced technology.
+- Fight against mercenaries trying to stop you.
+- Uncover a branching storyline based on the choices you make.
 
-EOL
-   echo "README file created at $readme_file"; }
-# Function to handle errors
-handle_error() {   echo "An error occurred: $1";   exit 1; }
-# Function to create app directory structure
-create_app_structure() {   echo "Creating app directory structure...";   mkdir -p app/lib/modules;   echo "App structure created."; }
-# Function to install necessary dependencies
-install_dependencies() {
-  check_sudo   echo "Checking and installing necessary dependencies...";   check_and_install python3;   check_and_install python3-pip;   check_and_install ffmpeg; }
-# Main function
-main() {
-  create_app_structure || handle_error "Failed to create app structure"
-  install_dependencies || handle_error "Failed to install dependencies"
-  generate_python_script || handle_error "Failed to generate Python script";   generate_html || handle_error "Failed to generate HTML file";   generate_css || handle_error "Failed to generate CSS file";   generate_js || handle_error "Failed to generate JavaScript file";   generate_readme || handle_error "Failed to generate README file"   echo "All files generated successfully!"; }
-# Call the main function
-main
-ls -la
-#!/bin/bash
-# Exit script on any error
-set -e
-# Create necessary directories and files for the Aenzbi App
-echo "Generating application files..."
-# Create application directory
-APP_DIR="aenzbi_app"
-mkdir -p $APP_DIR
-# Move into the application directory
-cd $APP_DIR
-# Create app.py
-cat <<EOL > app.py
-from flask import Flask, request, jsonify
-import moviepy.editor as mp
-import tensorflow as tf
-import os
+## Game Mechanics
+- **Exploration**: Navigate the city, interact with characters, and find clues to progress.
+- **Puzzle Solving**: Use Ally’s knowledge to solve technological puzzles and access new areas.
+- **Combat**: Choose whether to fight or flee when you encounter enemies.
 
-app = Flask(__name__)
+## Future Plans
+We plan to expand the game with more levels, improved graphics, and new mechanics such as:
+- A more detailed combat system.
+- Inventory management and item collection.
+- Branching storylines with multiple endings.
 
-@app.route('/generate', methods=['POST'])
-def generate_content():
-    data = request.json
-    script = data.get('script')
-    
-    # Example logic for video generation
-    video_clip_path = generate_video_from_script(script)
-    song_path = generate_music_from_script(script)
-    
-    return jsonify({
-        'video_clip': video_clip_path,
-        'song': song_path
-    })
+## Contributions
+If you'd like to contribute to this project, feel free to fork the repository and submit pull requests!
 
-def generate_video_from_script(script):
-    # Placeholder function to simulate video generation
-    # Use moviepy or other libraries to generate the video
-    video_path = 'output_video.mp4'
-    # Example: create a video clip with moviepy
-    clip = mp.TextClip(script, fontsize=70, color='white')
-    clip = clip.set_duration(10)
-    clip.write_videofile(video_path, fps=24)
-    return video_path
-
-def generate_music_from_script(script):
-    # Placeholder function to simulate music generation
-    # Use TensorFlow or other libraries to generate music
-    song_path = 'output_song.mp3'
-    # Example: create a dummy music file
-    with open(song_path, 'w') as f:
-        f.write("Generated music based on script")
-    return song_path
-
-if __name__ == '__main__':
-    app.run(host='0.0.0.0', port=8000)
-EOL
-
-# Create requirements.txt
-cat <<EOL > requirements.txt
-flask
-moviepy
-tensorflow
-EOL
-
-# Create Dockerfile
-cat <<EOL > Dockerfile
-# Use an official Python runtime as a parent image
-FROM python:3.9-slim
-
-# Set the working directory in the container
-WORKDIR /app
-
-# Copy the current directory contents into the container at /app
-COPY . /app
-
-# Install any needed packages specified in requirements.txt
-RUN pip install --no-cache-dir -r requirements.txt
-
-# Make port 8000 available to the world outside this container
-EXPOSE 8000
-
-# Define environment variable
-ENV NAME AenzbiApp
-
-# Run app.py when the container launches
-CMD ["python", "app.py"]
-EOL
-
-# (Optional) Create docker-compose.yml
-cat <<EOL > docker-compose.yml
-version: '3'
-services:
-  aenzbiapp:
-    build: .
-    ports:
-      - "8000:8000"
-    environment:
-      - NAME=AenzbiApp
-EOL
-
-# Go back to the parent directory
-cd ..
-# Define image and container names
-IMAGE_NAME="aenzbiapp"
-CONTAINER_NAME="aenzbiapp_container"
-# Build Docker image
-echo "Building Docker image..."
-docker build -t $IMAGE_NAME ./$APP_DIR
-# Stop and remove any existing container
-if [ "$(docker ps -q -f name=$CONTAINER_NAME)" ]; then     echo "Stopping running container...";     docker stop $CONTAINER_NAME; fi
-if [ "$(docker ps -a -q -f name=$CONTAINER_NAME)" ]; then     echo "Removing existing container...";     docker rm $CONTAINER_NAME; fi
-# Run Docker container
-echo "Running Docker container..."
-docker run -d -p 8000:8000 --name $CONTAINER_NAME $IMAGE_NAME
-# Confirm container is running
-echo "Container is running. Access the app at http://localhost:8000"
-docker --debug
-#!/bin/bash
-# Project and domain information
-PROJECT_ID="aenzbi-idle"
-DOMAIN="aenzbi.io"
-APP_NAME="aenzbi-app"
-SERVICE_NAME="backend-service"
-REGION="us-central1"
-DNS_ZONE_NAME="aenzbi-zone"
-# Check for required tools
-command -v gcloud >/dev/null 2>&1 || { echo >&2 "Google Cloud SDK required but not installed. Aborting."; exit 1; }
-# Enable necessary Google Cloud services
-echo "Enabling required Google Cloud services..."
-gcloud services enable compute.googleapis.com     appengine.googleapis.com     run.googleapis.com     dns.googleapis.com     cloudbuild.googleapis.com     containerregistry.googleapis.com
-#!/bin/bash
-# Project and domain information
-PROJECT_ID="aenzbi-idle"
-DOMAIN="aenzbi.io"
-APP_NAME="aenzbi-app"
-SERVICE_NAME="backend-service"
-REGION="us-central1"
-ZONE="us-central1-a"
-DNS_ZONE_NAME="aenzbi-zone"
-# Check for required tools
-command -v gcloud >/dev/null 2>&1 || { echo >&2 "Google Cloud SDK required but not installed. Aborting."; exit 1; }
-# Enable necessary Google Cloud services
-echo "Enabling required Google Cloud services..."
-gcloud services enable compute.googleapis.com     appengine.googleapis.com     run.googleapis.com     dns.googleapis.com     cloudbuild.googleapis.com     containerregistry.googleapis.com
-# Set project and region
-gcloud config set project $PROJECT_ID
-gcloud config set compute/region $REGION
-# Create App Engine
-echo "Creating App Engine..."
-gcloud app create --region=$REGION
-# Create Cloud DNS zone for your domain
-if gcloud dns managed-zones describe $DNS_ZONE_NAME >/dev/null 2>&1; then     echo "DNS zone $DNS_ZONE_NAME already exists, skipping creation."; else     echo "Creating Cloud DNS zone...";     gcloud dns managed-zones create $DNS_ZONE_NAME         --description="DNS zone for $DOMAIN"         --dns-name="$DOMAIN"; fi
-# Fetch nameservers and instruct user to update domain registrar
-echo "Fetching Cloud DNS nameservers..."
-gcloud dns managed-zones describe $DNS_ZONE_NAME --format="get(nameServers)"
-echo "Please update your domain registrar with the above nameservers to point to Google Cloud DNS."
-# Set up an App Engine app (Next.js or static app)
-echo "Deploying the App Engine app..."
-cat > app.yaml <<EOL
-runtime: nodejs16
-instance_class: F2
-automatic_scaling:
-  target_cpu_utilization: 0.65
-  min_instances: 1
-  max_instances: 5
-
-handlers:
-- url: /.*
-  secure: always
-  script: auto
-EOL
-
-# Deploy the app to App Engine
-gcloud app deploy app.yaml --quiet
-# Cloud Run Backend Service Deployment
-echo "Deploying backend service to Cloud Run..."
-gcloud builds submit --tag gcr.io/$PROJECT_ID/$SERVICE_NAME
-gcloud run deploy $SERVICE_NAME     --image gcr.io/$PROJECT_ID/$SERVICE_NAME     --platform managed     --region $REGION     --allow-unauthenticated
-# Map the App Engine service to the domain
-echo "Mapping App Engine service to $DOMAIN..."
-gcloud app domain-mappings create $DOMAIN
-# Get SSL certificates
-echo "Setting up managed SSL for $DOMAIN..."
-gcloud app ssl-certificates create --display-name="aenzbi-ssl" --domains=$DOMAIN
-# Get the CNAME record for App Engine
-APP_CNAME=$(gcloud app describe --format="get(defaultHostname)")
-# Add a CNAME record to the DNS
-gcloud dns record-sets transaction start --zone=$DNS_ZONE_NAME
-gcloud dns record-sets transaction add $APP_CNAME     --name=$DOMAIN.     --ttl=300     --type=CNAME     --zone=$DNS_ZONE_NAME
-gcloud dns record-sets transaction execute --zone=$DNS_ZONE_NAME
-# Compute Engine Setup
-echo "Setting up Compute Engine for flexibility..."
-gcloud compute instances create "aenzbi-vm"     --zone "$ZONE"     --machine-type "e2-medium"     --image-family "debian-10"     --image-project "debian-cloud"     --tags http-server,https-server     --boot-disk-size "10GB"     --boot-disk-type "pd-balanced"
-echo "Compute Engine VM created."
-# Allow HTTP and HTTPS traffic
-gcloud compute firewall-rules create default-allow-http --allow tcp:80 --quiet
-gcloud compute firewall-rules create default-allow-https --allow tcp:443 --quiet
-# Instructions for user
-echo "Deployment complete."
-echo "Please make sure your domain is updated with the Cloud DNS nameservers."
-echo "App Engine and Cloud Run services are up and running."
-echo "Compute Engine VM created for flexibility."
-ls -la
-sudo apt-get install ffmpeg
-pip install gtts
-ls -la
-#!/bin/bash
-# Define variables
-PROJECT_NAME="Echoes_of_Innovation"
-SCRIPT_FILE="${PROJECT_NAME}_cinema_script.txt"
-AUDIO_FILE="voiceover.mp3"
-VIDEO_FILE="promo_video.mp4"
-TEXT_FILE="${PROJECT_NAME}_promo_script.txt"
-IMAGE_FILE="background_image.jpg"
-MUSIC_FILE="background_music.mp3"
-TEXT_OVERLAY_FILE="text_overlay.mp4"
-FINAL_VIDEO_FILE="final_${VIDEO_FILE}"
-# Check if necessary files exist
-if [ ! -f "$SCRIPT_FILE" ] || [ ! -f "$IMAGE_FILE" ] || [ ! -f "$MUSIC_FILE" ] || [ ! -f "$TEXT_FILE" ]; then     echo "Required files are missing!";     exit 1; fi
-sudo apt-get install ffmpeg
-pip install gtts
-#!/bin/bash
-# Define variables
-PROJECT_NAME="Echoes_of_Innovation"
-SCRIPT_FILE="${PROJECT_NAME}_cinema_script.txt"
-AUDIO_FILE="voiceover.mp3"
-VIDEO_FILE="promo_video.mp4"
-TEXT_FILE="${PROJECT_NAME}_promo_script.txt"
-IMAGE_FILE="background_image.jpg"
-MUSIC_FILE="background_music.mp3"
-TEXT_OVERLAY_FILE="text_overlay.mp4"
-FINAL_VIDEO_FILE="final_${VIDEO_FILE}"
-# Check if necessary files exist
-if [ ! -f "$SCRIPT_FILE" ] || [ ! -f "$IMAGE_FILE" ] || [ ! -f "$MUSIC_FILE" ] || [ ! -f "$TEXT_FILE" ]; then     echo "Required files are missing!";     exit 1; fi
-#!/bin/bash
-# Define variables
-IMAGES=("futuristic_metropolis.jpg" "ancient_vault.jpg" "ally_character.jpg" "emilia_character.jpg" "victor_character.jpg")
-VOICEOVER="voiceover.mp3"
-FINAL_VIDEO="final_video.mp4"
-TEMP_VIDEO="temp_video.mp4"
-# Create a temporary video with images
-echo "Creating temporary video from images..."
-ffmpeg -loop 1 -i "${IMAGES[0]}" -loop 1 -i "${IMAGES[1]}" -loop 1 -i "${IMAGES[2]}" -loop 1 -i "${IMAGES[3]}" -loop 1 -i "${IMAGES[4]}" -filter_complex "[0:v]trim=duration=10[v0];[1:v]trim=duration=10[v1];[2:v]trim=duration=10[v2];[3:v]trim=duration=10[v3];[4:v]trim=duration=10[v4];[v0][v1][v2][v3][v4]concat=n=5:v=1:a=0" -c:v libx264 -pix_fmt yuv420p "$TEMP_VIDEO"
-# Combine the temporary video with voiceover
-echo "Combining video with voiceover..."
-ffmpeg -i "$TEMP_VIDEO" -i "$VOICEOVER" -c:v copy -c:a aac -b:a 192k "$FINAL_VIDEO"
-# Clean up
-rm "$TEMP_VIDEO"
-echo "Video created successfully: $FINAL_VIDEO"
-chmod +x create_video_with_dalle_images.sh
-./create_video_with_dalle_images.sh
-#!/bin/bash
-# Define variables
-IMAGES=("futuristic_metropolis.jpg" "ancient_vault.jpg" "ally_character.jpg" "emilia_character.jpg" "victor_character.jpg")
-VOICEOVER="voiceover.mp3"
-FINAL_VIDEO="final_video.mp4"
-TEMP_VIDEO="temp_video.mp4"
-TEXT_OVERLAY="text_overlay.mp4"
-SCRIPT_FILE="video_script.txt"
-MUSIC_FILE="background_music.mp3"
-# Create a text overlay video from the script
-echo "Generating text overlay video..."
-ffmpeg -f lavfi -i color=c=black:s=1280x720:d=30 -vf "drawtext=textfile=$SCRIPT_FILE:fontfile=/usr/share/fonts/truetype/dejavu/DejaVuSans-Bold.ttf:fontcolor=white:fontsize=36:x=(w-text_w)/2:y=(h-text_h)/2" -t 30 "$TEXT_OVERLAY"
-# Create a temporary video with images
-echo "Creating temporary video from images..."
-ffmpeg -loop 1 -i "${IMAGES[0]}" -loop 1 -i "${IMAGES[1]}" -loop 1 -i "${IMAGES[2]}" -loop 1 -i "${IMAGES[3]}" -loop 1 -i "${IMAGES[4]}" -filter_complex "[0:v]trim=duration=10[v0];[1:v]trim=duration=10[v1];[2:v]trim=duration=10[v2];[3:v]trim=duration=10[v3];[4:v]trim=duration=10[v4];[v0][v1][v2][v3][v4]concat=n=5:v=1:a=0" -c:v libx264 -pix_fmt yuv420p "$TEMP_VIDEO"
-# Combine the temporary video with voiceover and text overlay
-echo "Combining video with voiceover and text overlay..."
-ffmpeg -i "$TEMP_VIDEO" -i "$VOICEOVER" -i "$TEXT_OVERLAY" -filter_complex "[0:v][2:v]overlay=0:0" -c:v libx264 -c:a aac -b:a 192k -shortest "$FINAL_VIDEO"
-# Add background music to the final video
-echo "Adding background music..."
-ffmpeg -i "$FINAL_VIDEO" -i "$MUSIC_FILE" -filter_complex "[0:a][1:a]amix=inputs=2:duration=longest" -c:v copy -c:a aac -b:a 192k "$FINAL_VIDEO"
-# Clean up
-rm "$TEMP_VIDEO"
-rm "$TEXT_OVERLAY"
-echo "Video created successfully: $FINAL_VIDEO"
-ls -la
-#!/bin/bash
-# Define variables
-IMAGES=("futuristic_metropolis.jpg" "ancient_vault.jpg" "ally_character.jpg" "emilia_character.jpg" "victor_character.jpg")
-VOICEOVER="voiceover.mp3"
-FINAL_VIDEO="final_video.mp4"
-TEMP_VIDEO="temp_video.mp4"
-TEXT_OVERLAY="text_overlay.mp4"
-SCRIPT_FILE="video_script.txt"
-MUSIC_FILE="background_music.mp3"
-# Create a text overlay video from the script
-echo "Generating text overlay video..."
-ffmpeg -f lavfi -i color=c=black:s=1280x720:d=30 -vf "drawtext=textfile=$SCRIPT_FILE:fontfile=/usr/share/fonts/truetype/dejavu/DejaVuSans-Bold.ttf:fontcolor=white:fontsize=36:x=(w-text_w)/2:y=(h-text_h)/2" -t 30 "$TEXT_OVERLAY"
-# Create a temporary video with images
-echo "Creating temporary video from images..."
-ffmpeg -loop 1 -i "${IMAGES[0]}" -loop 1 -i "${IMAGES[1]}" -loop 1 -i "${IMAGES[2]}" -loop 1 -i "${IMAGES[3]}" -loop 1 -i "${IMAGES[4]}" -filter_complex "[0:v]trim=duration=10[v0];[1:v]trim=duration=10[v1];[2:v]trim=duration=10[v2];[3:v]trim=duration=10[v3];[4:v]trim=duration=10[v4];[v0][v1][v2][v3][v4]concat=n=5:v=1:a=0" -c:v libx264 -pix_fmt yuv420p "$TEMP_VIDEO"
-# Combine the temporary video with voiceover and text overlay
-echo "Combining video with voiceover and text overlay..."
-ffmpeg -i "$TEMP_VIDEO" -i "$VOICEOVER" -i "$TEXT_OVERLAY" -filter_complex "[0:v][2:v]overlay=0:0" -c:v libx264 -c:a aac -b:a 192k -shortest "$FINAL_VIDEO"
-# Add background music to the final video
-echo "Adding background music..."
-ffmpeg -i "$FINAL_VIDEO" -i "$MUSIC_FILE" -filter_complex "[0:a][1:a]amix=inputs=2:duration=longest" -c:v copy -c:a aac -b:a 192k "$FINAL_VIDEO"
-# Clean up
-rm "$TEMP_VIDEO"
-rm "$TEXT_OVERLAY"
-echo "Video created successfully: $FINAL_VIDEO"
-#!/bin/bash
-# Define project directory and file names
-PROJECT_DIR="video_project"
-IMAGES_DIR="$PROJECT_DIR/images"
-SCRIPT_FILE="$PROJECT_DIR/video_script.txt"
-VOICEOVER_FILE="$PROJECT_DIR/voiceover.mp3"
-BACKGROUND_MUSIC_FILE="$PROJECT_DIR/background_music.mp3"
-TEMP_VIDEO_FILE="$PROJECT_DIR/temp_video.mp4"
-FINAL_VIDEO_FILE="$PROJECT_DIR/final_video.mp4"
-TEXT_OVERLAY_FILE="$PROJECT_DIR/text_overlay.mp4"
-# Create project directory
-echo "Creating project directory..."
-mkdir -p "$IMAGES_DIR"
-# Create placeholder files
-echo "Creating placeholder files..."
-touch "$SCRIPT_FILE"
-touch "$VOICEOVER_FILE"
-touch "$BACKGROUND_MUSIC_FILE"
-# Example content for video_script.txt
-echo "Creating script content..."
-cat <<EOT > "$SCRIPT_FILE"
-Welcome to the Echoes of Innovation!
-In this video, we will explore the future world and characters of our game.
-Stay tuned for an exciting journey!
+## License
+This project is open-source and available under the MIT License.
 EOT
 
-# Install ffmpeg
-echo "Installing ffmpeg..."
-if ! command -v ffmpeg &> /dev/null; then     echo "ffmpeg could not be found, installing...";     sudo apt-get update;     sudo apt-get install -y ffmpeg; else     echo "ffmpeg is already installed."; fi
-# Optional: Install other dependencies (e.g., text-to-speech tools) if needed
-# Inform the user
-echo "Setup complete! Your project directory is ready."
-echo "Place your images in the $IMAGES_DIR directory."
-echo "Add your voiceover and background music to the project directory."
-# End of script
-pip install openai requests
-#!/bin/bash
-# Define the final video file
-FINAL_VIDEO_FILE="video_project/final_video.mp4"
-# Check if VLC is installed
-if ! command -v vlc &> /dev/null; then     echo "VLC is not installed. Please install VLC to continue.";     exit 1; fi
-reboot
-ls -la
-cd video_project
-ls -la
-cd images
-ls -la
-cd
-#!/bin/bash
-# Define variables
-IMAGES=("futuristic_metropolis.jpg" "ancient_vault.jpg" "ally_character.jpg" "emilia_character.jpg" "victor_character.jpg")
-VOICEOVER="voiceover.mp3"
-FINAL_VIDEO="final_video.mp4"
-TEMP_VIDEO="temp_video.mp4"
-# Create a temporary video with images
-echo "Creating temporary video from images..."
-ffmpeg -loop 1 -i "${IMAGES[0]}" -loop 1 -i "${IMAGES[1]}" -loop 1 -i "${IMAGES[2]}" -loop 1 -i "${IMAGES[3]}" -loop 1 -i "${IMAGES[4]}" -filter_complex "[0:v]trim=duration=10[v0];[1:v]trim=duration=10[v1];[2:v]trim=duration=10[v2];[3:v]trim=duration=10[v3];[4:v]trim=duration=10[v4];[v0][v1][v2][v3][v4]concat=n=5:v=1:a=0" -c:v libx264 -pix_fmt yuv420p "$TEMP_VIDEO"
-# Combine the temporary video with voiceover
-echo "Combining video with voiceover..."
-ffmpeg -i "$TEMP_VIDEO" -i "$VOICEOVER" -c:v copy -c:a aac -b:a 192k "$FINAL_VIDEO"
-# Clean up
-rm "$TEMP_VIDEO"
-echo "Video created successfully: $FINAL_VIDEO"
-ls -la
-cd video_project
-ls -la
-cd image
-cd images
-ls -la
-cd
-cd /
-cd storage
-storage/emulated
-cd /storage/
-local
-cd local
-ls -la
-cd media
-ls -la
-cd tmp
-cd home
-cd bin
-cd mnt
-cd /
-cd home
-ls -la
-cd ally
-ls -la
-cd business-category-app
-ls -la
-git pull origin main
-git config pull.rebase false 
-git pull origin main
-git config pull.rebase true
-git pull origin main
+echo "README file has been updated successfully!"
+git add .
+git commit -m "readme update"
 git push origin main
+gcloud config set project aenzbi-cloud-project
+cd echoes_of_innovation
+#!/bin/bash
+# Define package directory
+PACKAGE_DIR="echoes_of_innovation_package"
+# Navigate to package directory
+cd "$PACKAGE_DIR" || { echo "Directory $PACKAGE_DIR does not exist."; exit 1; }
+ls -la
+cd echoes_of_innovation
+#!/bin/bash
+# Define package directory
+PACKAGE_DIR="echoes_of_innovation_package"
+# Navigate to package directory
+cd "$PACKAGE_DIR" || { echo "Directory $PACKAGE_DIR does not exist."; exit 1; }
+cd echoes_of_innovation
+gcloud config set project aenzbi-cloud-project
+cd echoes_of_innovation
+npm init -y
+gjt add .
+git add .
+git commit -m "package"
+git push origin main
+gcloud config set project aenzbi-cloud-project
+cd echoes_of_innovation
+#!/bin/bash
+# Define game directory and file names
+GAME_DIR="echoes_of_innovation_game"
+GAME_FILE="echoes_of_innovation.py"
+README_FILE="README.md"
+CONFIG_DIR="config"
+LEVELS_DIR="levels"
+# Create game directory and subdirectories
+echo "Setting up the game directory..."
+mkdir -p "$GAME_DIR/$CONFIG_DIR"
+mkdir -p "$GAME_DIR/$LEVELS_DIR"
+# Move into the game directory
+cd "$GAME_DIR"
+# Create Python game file
+echo "Creating the game script..."
+cat <<EOT > "$GAME_FILE"
+#!/usr/bin/env python3
+
+# Echoes of Innovation - A text-based adventure game
+
+import os
+
+def load_level(level_number):
+    level_file = f"levels/level_{level_number}.txt"
+    if os.path.exists(level_file):
+        with open(level_file, 'r') as file:
+            print(file.read())
+    else:
+        print("Level file not found.")
+
+def start_game():
+    print("Welcome to 'Echoes of Innovation: The Quest for Lost Tech'!")
+    print("You are Ally Elvis Nzeyimana, a genius software engineer in a futuristic metropolis.")
+    print("Your goal is to find the lost technology hidden within an ancient digital artifact.")
+    main_menu()
+
+def main_menu():
+    print("\\nWhat would you like to do?")
+    print("1. Search for the artifact")
+    print("2. Visit Dr. Emilia Roche")
+    print("3. Fight Victor Kade’s mercenaries")
+    print("4. Explore City")
+    print("5. Exit the game")
+    
+    choice = input("> ")
+    
+    if choice == "1":
+        search_for_artifact()
+    elif choice == "2":
+        visit_emilia()
+    elif choice == "3":
+        fight_mercenaries()
+    elif choice == "4":
+        explore_city()
+    elif choice == "5":
+        print("Goodbye, Ally!")
+        exit(0)
+    else:
+        print("Invalid choice. Please select again.")
+        main_menu()
+
+def search_for_artifact():
+    print("\\nYou begin searching for the artifact in a hidden part of the city.")
+    print("As you approach the ancient vault, you must solve a puzzle to enter.")
+    puzzle = input("Solve this puzzle (What is 10 + 5?): ")
+    
+    if puzzle == "15":
+        print("Correct! The vault opens, revealing the ancient artifact!")
+    else:
+        print("Incorrect! You failed to open the vault.")
+    
+    main_menu()
+
+def visit_emilia():
+    print("\\nYou visit Dr. Emilia Roche at her secret lab.")
+    print("She helps you decode part of the artifact and gives you a crucial clue.")
+    
+    print("You now have a lead on Victor Kade’s plans.")
+    
+    main_menu()
+
+def fight_mercenaries():
+    print("\\nVictor Kade’s mercenaries have found you!")
+    print("You must defend yourself using advanced tech gadgets.")
+    
+    fight = input("Do you want to fight (yes or no)?: ").lower()
+    
+    if fight == "yes":
+        print("You defeated the mercenaries using your advanced gadgets!")
+    else:
+        print("You fled from the battle. Victor Kade gains more power.")
+    
+    main_menu()
+
+def explore_city():
+    print("\\nExploring the city...")
+    print("You come across various locations: tech stores, archives, and hidden areas.")
+    print("Each location offers different clues and resources.")
+    
+    print("Which location do you want to visit?")
+    print("1. Tech Store")
+    print("2. Archives")
+    print("3. Hidden Area")
+    
+    location = input("> ")
+    
+    if location == "1":
+        print("You visit the Tech Store and find some useful gadgets.")
+    elif location == "2":
+        print("You explore the Archives and discover important documents.")
+    elif location == "3":
+        print("You enter a Hidden Area and uncover a mysterious clue.")
+    else:
+        print("Invalid choice. You wander around aimlessly.")
+    
+    main_menu()
+
+# Start the game
+if __name__ == "__main__":
+    start_game()
+EOT
+
+# Create README file
+echo "Creating the README file..."
+gcloud config set project aenzbi-cloud-project
+cd echoes_of_innovation
+git pull origin main
+git add .
+git commit -m "updating"
+git push origin main
+.ls -la
+ls -la
+cd echoes_of_innovation_game
+ls -la
+cd level
+cat <<EOT > "$README_FILE"
+# Echoes of Innovation: The Quest for Lost Tech
+
+## Overview
+
+"**Echoes of Innovation: The Quest for Lost Tech**" is a text-based adventure game where you play as Ally Elvis Nzeyimana, a brilliant software engineer in a futuristic metropolis. Your mission is to uncover and obtain a lost technology hidden within an ancient digital artifact. Navigate through various levels, solve puzzles, and interact with characters to complete your quest.
+
+## Features
+
+- **Multiple Levels**: Experience different levels with unique challenges and puzzles.
+- **Interactive Scenes**: Explore various locations in the futuristic city.
+- **Dynamic Choices**: Make decisions that influence the outcome of the game.
+- **Enhanced Gameplay**: Includes levels with security systems, clues, and interactions with different characters.
+
+## Gameplay
+
+- **Start Game**: Launch the game to begin your adventure.
+- **Main Menu**: Choose from options to search for the artifact, visit Dr. Emilia Roche, fight mercenaries, or explore the city.
+- **Levels**: Progress through levels by solving puzzles and making strategic choices.
+- **Explore City**: Visit locations like high-tech stores and city archives to gather resources and information.
+
+## Setup
+
+### Prerequisites
+
+- Python 3.x installed on your machine.
+
+### Installation
+
+1. **Clone the Repository**:
+   ```bash
+   git clone https://github.com/allyelvis/echoes_of_innovation.git
+   cd echoes_of_innovation
+
+cat <<EOT > "$README_FILE"
+# Echoes of Innovation: The Quest for Lost Tech
+
+## Overview
+
+"**Echoes of Innovation: The Quest for Lost Tech**" is a text-based adventure game where you play as Ally Elvis Nzeyimana, a brilliant software engineer in a futuristic metropolis. Your mission is to uncover and obtain a lost technology hidden within an ancient digital artifact. Navigate through various levels, solve puzzles, and interact with characters to complete your quest.
+
+## Features
+
+- **Multiple Levels**: Experience different levels with unique challenges and puzzles.
+- **Interactive Scenes**: Explore various locations in the futuristic city.
+- **Dynamic Choices**: Make decisions that influence the outcome of the game.
+- **Enhanced Gameplay**: Includes levels with security systems, clues, and interactions with different characters.
+
+## Gameplay
+
+- **Start Game**: Launch the game to begin your adventure.
+- **Main Menu**: Choose from options to search for the artifact, visit Dr. Emilia Roche, fight mercenaries, or explore the city.
+- **Levels**: Progress through levels by solving puzzles and making strategic choices.
+- **Explore City**: Visit locations like high-tech stores and city archives to gather resources and information.
+
+## Setup
+
+### Prerequisites
+
+- Python 3.x installed on your machine.
+
+### Installation
+
+1. **Clone the Repository**:
+   ```bash
+   git clone https://github.com/allyelvis/echoes_of_innovation.git
+   cd echoes_of_innovation
+
+gcloud config set project aenzbi-cloud-project
+cd echoes_of_innovation
+#!/bin/bash
+# Define directories and file names
+GAME_DIR="echoes_of_innovation_game"
+CONFIG_FILE="$GAME_DIR/config/settings.conf"
+GAME_FILE="$GAME_DIR/echoes_of_innovation.py"
+README_FILE="$GAME_DIR/README.md"
+ASSETS_DIR="$GAME_DIR/assets"
+# Define new configuration settings
+NEW_SETTINGS="
+# Echoes of Innovation Configuration
+level_count=10
+sound_volume=0.8
+image_quality=high
+video_resolution=1080p
+"
+# Update configuration file
+echo "Updating configuration file..."
+mkdir -p "$(dirname "$CONFIG_FILE")"
+echo "$NEW_SETTINGS" > "$CONFIG_FILE"
+# Update the game script to use new configuration settings
+echo "Updating the game script..."
+cat <<EOT > "$GAME_FILE"
+#!/usr/bin/env python3
+
+import os
+import sys
+import time
+from PIL import Image
+from pygame import mixer
+
+# Load configuration settings
+def load_config():
+    config = {
+        "level_count": 10,
+        "sound_volume": 0.8,
+        "image_quality": "high",
+        "video_resolution": "1080p"
+    }
+    config_file = "config/settings.conf"
+    if os.path.exists(config_file):
+        with open(config_file, 'r') as file:
+            lines = file.readlines()
+            for line in lines:
+                if '=' in line:
+                    key, value = line.strip().split('=', 1)
+                    config[key.strip()] = value.strip()
+    return config
+
+config = load_config()
+
+# Initialize the mixer for sound
+mixer.init()
+mixer.music.set_volume(float(config['sound_volume']))
+
+# Asset paths
+IMAGES_DIR = "assets/images"
+SOUNDS_DIR = "assets/sounds"
+VIDEOS_DIR = "assets/videos"
+UI_DIR = "assets/ui"
+
+# Load and display an image
+def show_image(image_path):
+    try:
+        img = Image.open(image_path)
+        img.show()
+    except Exception as e:
+        print(f"Failed to load image: {e}")
+
+# Play a sound
+def play_sound(sound_path):
+    try:
+        sound = mixer.Sound(sound_path)
+        sound.play()
+    except Exception as e:
+        print(f"Failed to play sound: {e}")
+
+# Show a video (simple example using terminal-based approach)
+def show_video(video_path):
+    print(f"Video {video_path} would be played here.")
+
+def load_level(level_number):
+    level_file = f"levels/level_{level_number}.txt"
+    if os.path.exists(level_file):
+        with open(level_file, 'r') as file:
+            print(file.read())
+    else:
+        print("Level file not found.")
+
+def start_game():
+    print("Welcome to 'Echoes of Innovation: The Quest for Lost Tech'!")
+    show_image(f"{IMAGES_DIR}/welcome.png")
+    play_sound(f"{SOUNDS_DIR}/intro.mp3")
+    print("You are Ally Elvis Nzeyimana, a genius software engineer in a futuristic metropolis.")
+    print("Your goal is to find the lost technology hidden within an ancient digital artifact.")
+    main_menu()
+
+def main_menu():
+    print("\\nWhat would you like to do?")
+    print("1. Search for the artifact")
+    print("2. Visit Dr. Emilia Roche")
+    print("3. Fight Victor Kade’s mercenaries")
+    print("4. Explore City")
+    print("5. Exit the game")
+    
+    choice = input("> ")
+    
+    if choice == "1":
+        search_for_artifact()
+    elif choice == "2":
+        visit_emilia()
+    elif choice == "3":
+        fight_mercenaries()
+    elif choice == "4":
+        explore_city()
+    elif choice == "5":
+        print("Goodbye, Ally!")
+        exit(0)
+    else:
+        print("Invalid choice. Please select again.")
+        main_menu()
+
+def search_for_artifact():
+    print("\\nYou begin searching for the artifact in a hidden part of the city.")
+    show_image(f"{IMAGES_DIR}/vault.png")
+    play_sound(f"{SOUNDS_DIR}/search.mp3")
+    print("As you approach the ancient vault, you must solve a puzzle to enter.")
+    puzzle = input("Solve this puzzle (What is 10 + 5?): ")
+    
+    if puzzle == "15":
+        print("Correct! The vault opens, revealing the ancient artifact!")
+    else:
+        print("Incorrect! You failed to open the vault.")
+    
+    main_menu()
+
+def visit_emilia():
+    print("\\nYou visit Dr. Emilia Roche at her secret lab.")
+    show_image(f"{IMAGES_DIR}/emilia_lab.png")
+    play_sound(f"{SOUNDS_DIR}/emilia.mp3")
+    print("She helps you decode part of the artifact and gives you a crucial clue.")
+    
+    print("You now have a lead on Victor Kade’s plans.")
+    
+    main_menu()
+
+def fight_mercenaries():
+    print("\\nVictor Kade’s mercenaries have found you!")
+    show_image(f"{IMAGES_DIR}/mercenaries.png")
+    play_sound(f"{SOUNDS_DIR}/fight.mp3")
+    print("You must defend yourself using advanced tech gadgets.")
+    
+    fight = input("Do you want to fight (yes or no)?: ").lower()
+    
+    if fight == "yes":
+        print("You defeated the mercenaries using your advanced gadgets!")
+    else:
+        print("You fled from the battle. Victor Kade gains more power.")
+    
+    main_menu()
+
+def explore_city():
+    print("\\nExploring the city...")
+    show_image(f"{IMAGES_DIR}/city.png")
+    play_sound(f"{SOUNDS_DIR}/explore.mp3")
+    print("You come across various locations: tech stores, archives, and hidden areas.")
+    print("Each location offers different clues and resources.")
+    
+    print("Which location do you want to visit?")
+    print("1. Tech Store")
+    print("2. Archives")
+    print("3. Hidden Area")
+    
+    location = input("> ")
+    
+    if location == "1":
+        print("You visit the Tech Store and find some useful gadgets.")
+    elif location == "2":
+        print("You explore the Archives and discover important documents.")
+    elif location == "3":
+        print("You enter a Hidden Area and uncover a mysterious clue.")
+    else:
+        print("Invalid choice. You wander around aimlessly.")
+    
+    main_menu()
+
+# Start the game
+if __name__ == "__main__":
+    start_game()
+EOT
+
+# Update README file with new features
+echo "Updating the README file..."
+cat <<EOT > "$README_FILE"
+# Echoes of Innovation: The Quest for Lost Tech
+
+## Overview
+
+"**Echoes of Innovation: The Quest for Lost Tech**" is a text-based adventure game where you play as Ally Elvis Nzeyimana, a brilliant software engineer in a futuristic metropolis. Your mission is to uncover and obtain a lost technology hidden within an ancient digital artifact. Navigate through various levels, solve puzzles, and interact with characters to complete your quest.
+
+## Features
+
+- **Multiple Levels**: Experience 10 levels with unique challenges and puzzles.
+- **Interactive Scenes**: Explore various locations in the futuristic city.
+- **Dynamic Choices**: Make decisions that influence the outcome of the game.
+- **Enhanced Gameplay**: Includes levels with security systems, clues, and interactions with different characters.
+- **Asset Integration**: Includes images, sounds, and videos to enhance the gameplay experience.
+
+## Gameplay
+
+- **Start Game**: Launch the game to begin your adventure.
+- **Main Menu**: Choose from options to search for the artifact, visit Dr. Emilia Roche, fight mercenaries, or explore the city.
+- **Levels**: Progress through 10 levels by solving puzzles and making strategic choices.
+- **Explore City**: Visit locations like high-tech stores and city archives to gather resources and information.
+
+## Configuration
+
+- **Configuration File**: Modify `config/settings.conf` for game settings such as level count, sound volume, image quality, and video resolution.
+
+## Setup
+
+### Prerequisites
+
+- Python 3.x installed on your machine.
+- `PIL` and `pygame` libraries for image and sound handling.
+
+### Installation
+
+1. **Clone the Repository**:
+   ```bash
+   git clone https://github.com/allyelvis/echoes_of_innovation.git
+   cd echoes_of_innovation
+
+cd echoes_of_innovation
