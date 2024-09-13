@@ -1,31 +1,3 @@
-TOTAL_SUPPLY=100000000 # 100 million tokens
-NODE_PORT=8545
-RPC_URL="http://localhost:$NODE_PORT"
-NETWORK="development"
-CONTRACT_NAME="AenzbiCoin"
-# Colors for output
-GREEN='\033[0;32m'
-RED='\033[0;31m'
-NC='\033[0m' # No Color
-echo -e "${GREEN}Starting setup for $PROJECT_NAME...${NC}"
-# Step 1: Install Dependencies
-echo -e "${GREEN}Step 1: Installing system dependencies...${NC}"
-sudo apt update
-#!/bin/bash
-# Aenzbi Coin Setup Script
-# This script sets up and builds the required components for the Aenzbi Coin project.
-# Set initial configurations
-PROJECT_NAME="AenzbiCoin"
-TOKEN_NAME="AenzbiCoin"
-SYMBOL="AENZ"
-TOTAL_SUPPLY=100000000 # 100 million tokens
-NODE_PORT=8545
-RPC_URL="http://localhost:$NODE_PORT"
-NETWORK="development"
-CONTRACT_NAME="AenzbiCoin"
-# Colors for output
-GREEN='\033[0;32m'
-RED='\033[0;31m'
 NC='\033[0m' # No Color
 echo -e "${GREEN}Starting setup for $PROJECT_NAME...${NC}"
 # Step 1: Install Dependencies
@@ -526,3 +498,30 @@ ls -la
 cd image
 cd images
 ls -la
+cd
+cd /
+cd storage
+storage/emulated
+cd /storage/
+local
+cd local
+ls -la
+cd media
+ls -la
+cd tmp
+cd home
+cd bin
+cd mnt
+cd /
+cd home
+ls -la
+cd ally
+ls -la
+cd business-category-app
+ls -la
+git pull origin main
+git config pull.rebase false 
+git pull origin main
+git config pull.rebase true
+git pull origin main
+git push origin main
