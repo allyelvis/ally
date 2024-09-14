@@ -500,3 +500,9 @@ git add .
 cd mobile-wallet-pos-app
 gcloud login
 gcloud auth login
+git add .
+git commit -m"update"
+git push origin main
+git status
+git push oriigin master
+git push master
