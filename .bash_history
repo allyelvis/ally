@@ -1,501 +1,502 @@
-    ./setup_game.sh
-    \`\`\`
-    This will create the necessary files and directories.
+            children: [
+              _buildQuickActionButton(context, 'Transfer', Icons.send, TransferScreen()),
+              _buildQuickActionButton(context, 'Cashout', Icons.money, CashoutScreen()),
+            ],
+          ),
+        ],
+      ),
+    );
+  }
 
-2. **Play the Game**:
-    After the setup, navigate to the game directory and start the game:
-    \`\`\`bash
-    cd echoes_of_innovation_game
-    ./echoes_of_innovation.py
-    \`\`\`
+  Widget _buildQuickActionButton(BuildContext context, String title, IconData icon, Widget screen) {
+    return GestureDetector(
+      onTap: () => Navigator.push(context, MaterialPageRoute(builder: (context) => screen)),
+      child: Column(
+        children: [
+          CircleAvatar(
+            radius: 30,
+            child: Icon(icon, size: 30),
+          ),
+          SizedBox(height: 5),
+          Text(title),
+        ],
+      ),
+    );
+  }
+}
+EOF
 
-## Features
-- Explore a futuristic metropolis and search for hidden artifacts.
-- Solve puzzles to unlock advanced technology.
-- Fight against mercenaries trying to stop you.
-- Uncover a branching storyline based on the choices you make.
+  cat << 'EOF' > lib/screens/transfer_screen.dartimport 'package:flutter/material.dart';
 
-## Game Mechanics
-- **Exploration**: Navigate the city, interact with characters, and find clues to progress.
-- **Puzzle Solving**: Use Ally’s knowledge to solve technological puzzles and access new areas.
-- **Combat**: Choose whether to fight or flee when you encounter enemies.
+class TransferScreen extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(title: Text('Transfer Funds')),
+      body: Padding(
+        padding: const EdgeInsets.all(16.0),
+        child: Column(
+          children: [
+            TextField(
+              decoration: InputDecoration(
+                labelText: 'Recipient Phone Number',
+                border: OutlineInputBorder(),
+              ),
+            ),
+            SizedBox(height: 20),
+            TextField(
+              decoration: InputDecoration(
+                labelText: 'Amount',
+                border: OutlineInputBorder(),
+              ),
+              keyboardType: TextInputType.number,
+            ),
+            SizedBox(height: 20),
+            ElevatedButton(
+              onPressed: () {
+                // Transfer logic
+              },
+              child: Text('Transfer'),
+            ),
+          ],
+        ),
+      ),
+    );
+  }
+}
+EOF
 
-## Future Plans
-We plan to expand the game with more levels, improved graphics, and new mechanics such as:
-- A more detailed combat system.
-- Inventory management and item collection.
-- Branching storylines with multiple endings.
+  cat << 'EOF' > lib/screens/cashout_screen.dartimport 'package:flutter/material.dart';
 
-## Contributions
-If you'd like to contribute to this project, feel free to fork the repository and submit pull requests!
+class CashoutScreen extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(title: Text('Cashout')),
+      body: Padding(
+        padding: const EdgeInsets.all(16.0),
+        child: Column(
+          children: [
+            TextField(
+              decoration: InputDecoration(
+                labelText: 'Agent Phone Number',
+                border: OutlineInputBorder(),
+              ),
+            ),
+            SizedBox(height: 20),
+            TextField(
+              decoration: InputDecoration(
+                labelText: 'Amount',
+                border: OutlineInputBorder(),
+              ),
+              keyboardType: TextInputType.number,
+            ),
+            SizedBox(height: 20),
+            ElevatedButton(
+              onPressed: () {
+                // Cashout logic
+              },
+              child: Text('Cashout'),
+            ),
+          ],
+        ),
+      ),
+    );
+  }
+}
+EOF
 
-## License
-This project is open-source and available under the MIT License.
-EOT
+  cat << 'EOF' > lib/screens/scan_screen.dartimport 'package:flutter/material.dart';
+import 'package:qr_code_scanner/qr_code_scanner.dart';
 
-echo "README file has been updated successfully!"
-git add .
-git commit -m "readme update"
-git push origin main
-gcloud config set project aenzbi-cloud-project
-cd echoes_of_innovation
-#!/bin/bash
-# Define package directory
-PACKAGE_DIR="echoes_of_innovation_package"
-# Navigate to package directory
-cd "$PACKAGE_DIR" || { echo "Directory $PACKAGE_DIR does not exist."; exit 1; }
+class ScanScreen extends StatefulWidget {
+  @override
+  _ScanScreenState createState() => _ScanScreenState();
+}
+
+class _ScanScreenState extends State<ScanScreen> {
+  final GlobalKey qrKey = GlobalKey(debugLabel: 'QR');
+  Barcode result;
+  QRViewController controller;
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(title: Text('Scan QR Code')),
+      body: QRView(
+        key: qrKey,
+        onQRViewCreated: _onQRViewCreated,
+      ),
+    );
+  }
+
+  void _onQRViewCreated(QRViewController controller) {
+    this.controller = controller;
+    controller.scannedDataStream.listen((scanData) {
+      setState(() {
+        result = scanData;
+      });
+    });
+  }
+
+  @override
+  void dispose() {
+    controller.dispose();
+    super.dispose();
+  }
+}
+EOF
+ }
+# Function to build the Flutter app (APK)
+build_flutter_app() {   echo "Building the Flutter APK...";   flutter build apk; }
+# Main execution flow
+main() {   install_flutter;   create_flutter_project "mobile_wallet_app";   install_dependencies;   setup_project_structure;   build_flutter_app; }
+# Start script execution
+main
 ls -la
-cd echoes_of_innovation
-#!/bin/bash
-# Define package directory
-PACKAGE_DIR="echoes_of_innovation_package"
-# Navigate to package directory
-cd "$PACKAGE_DIR" || { echo "Directory $PACKAGE_DIR does not exist."; exit 1; }
-cd echoes_of_innovation
-gcloud config set project aenzbi-cloud-project
-cd echoes_of_innovation
-npm init -y
-gjt add .
 git add .
-git commit -m "package"
+git commit -m "update"
 git push origin main
-gcloud config set project aenzbi-cloud-project
-cd echoes_of_innovation
+cd
+cd mobile-wallet-pos-app
 #!/bin/bash
-# Define game directory and file names
-GAME_DIR="echoes_of_innovation_game"
-GAME_FILE="echoes_of_innovation.py"
-README_FILE="README.md"
-CONFIG_DIR="config"
-LEVELS_DIR="levels"
-# Create game directory and subdirectories
-echo "Setting up the game directory..."
-mkdir -p "$GAME_DIR/$CONFIG_DIR"
-mkdir -p "$GAME_DIR/$LEVELS_DIR"
-# Move into the game directory
-cd "$GAME_DIR"
-# Create Python game file
-echo "Creating the game script..."
-cat <<EOT > "$GAME_FILE"
-#!/usr/bin/env python3
+# Function to check and install Flutter if not already installed
+install_flutter() {   echo "Checking if Flutter is installed...";   if ! command -v flutter &> /dev/null;   then     echo "Flutter not found. Installing Flutter SDK...";     git clone https://github.com/flutter/flutter.git -b stable --depth 1;     export PATH="$PWD/flutter/bin:$PATH";   else     echo "Flutter is already installed.";   fi; }
+# Function to create a new Flutter project
+create_flutter_project() {   local project_name=$1;   echo "Creating Flutter project: $project_name";   flutter create $project_name;   cd $project_name; }
+# Function to install necessary Flutter dependencies
+install_dependencies() {   echo "Installing necessary dependencies for the project..."
+  flutter pub add qr_code_scanner;   flutter pub add stripe_payment # For Visa card integration
+  flutter pub add provider;   flutter pub add intl # For currency formatting
+  flutter pub add flutter_pos_printer_platform # For POS printing
+  flutter pub add ecommerce_ui; }
+# Function to create directories and files
+setup_project_structure() {   echo "Setting up project structure..."   mkdir -p lib/screens lib/widgets lib/services lib/models
+  cat << 'EOF' > lib/main.dartimport 'package:flutter/material.dart';
+import 'screens/home_screen.dart';
+import 'screens/transfer_screen.dart';
+import 'screens/cashout_screen.dart';
+import 'screens/scan_screen.dart';
+import 'screens/pos_screen.dart';
+import 'screens/ecommerce_screen.dart';
+import 'screens/accounting_screen.dart';
+import 'screens/payment_screen.dart';
 
-# Echoes of Innovation - A text-based adventure game
+void main() {
+  runApp(MyApp());
+}
 
-import os
+class MyApp extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp(
+      title: 'Mobile Wallet & POS App',
+      theme: ThemeData(
+        primarySwatch: Colors.red,
+      ),
+      home: MainAppScreen(),
+    );
+  }
+}
 
-def load_level(level_number):
-    level_file = f"levels/level_{level_number}.txt"
-    if os.path.exists(level_file):
-        with open(level_file, 'r') as file:
-            print(file.read())
-    else:
-        print("Level file not found.")
+class MainAppScreen extends StatefulWidget {
+  @override
+  _MainAppScreenState createState() => _MainAppScreenState();
+}
 
-def start_game():
-    print("Welcome to 'Echoes of Innovation: The Quest for Lost Tech'!")
-    print("You are Ally Elvis Nzeyimana, a genius software engineer in a futuristic metropolis.")
-    print("Your goal is to find the lost technology hidden within an ancient digital artifact.")
-    main_menu()
+class _MainAppScreenState extends State<MainAppScreen> {
+  int _selectedIndex = 0;
 
-def main_menu():
-    print("\\nWhat would you like to do?")
-    print("1. Search for the artifact")
-    print("2. Visit Dr. Emilia Roche")
-    print("3. Fight Victor Kade’s mercenaries")
-    print("4. Explore City")
-    print("5. Exit the game")
-    
-    choice = input("> ")
-    
-    if choice == "1":
-        search_for_artifact()
-    elif choice == "2":
-        visit_emilia()
-    elif choice == "3":
-        fight_mercenaries()
-    elif choice == "4":
-        explore_city()
-    elif choice == "5":
-        print("Goodbye, Ally!")
-        exit(0)
-    else:
-        print("Invalid choice. Please select again.")
-        main_menu()
+  static List<Widget> _widgetOptions = <Widget>[
+    HomeScreen(),
+    ScanScreen(),
+    TransferScreen(),
+    CashoutScreen(),
+    PosScreen(),
+    EcommerceScreen(),
+    AccountingScreen(),
+    PaymentScreen(), # Visa card payment screen
+  ];
 
-def search_for_artifact():
-    print("\\nYou begin searching for the artifact in a hidden part of the city.")
-    print("As you approach the ancient vault, you must solve a puzzle to enter.")
-    puzzle = input("Solve this puzzle (What is 10 + 5?): ")
-    
-    if puzzle == "15":
-        print("Correct! The vault opens, revealing the ancient artifact!")
-    else:
-        print("Incorrect! You failed to open the vault.")
-    
-    main_menu()
+  void _onItemTapped(int index) {
+    setState(() {
+      _selectedIndex = index;
+    });
+  }
 
-def visit_emilia():
-    print("\\nYou visit Dr. Emilia Roche at her secret lab.")
-    print("She helps you decode part of the artifact and gives you a crucial clue.")
-    
-    print("You now have a lead on Victor Kade’s plans.")
-    
-    main_menu()
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        title: const Text('Mobile Wallet & POS App'),
+      ),
+      body: _widgetOptions.elementAt(_selectedIndex),
+      bottomNavigationBar: BottomNavigationBar(
+        items: const <BottomNavigationBarItem>[
+          BottomNavigationBarItem(
+            icon: Icon(Icons.home),
+            label: 'Home',
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.qr_code_scanner),
+            label: 'Scan',
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.send),
+            label: 'Transfer',
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.money),
+            label: 'Cashout',
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.store),
+            label: 'POS',
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.shopping_cart),
+            label: 'eCommerce',
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.account_balance),
+            label: 'Accounting',
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.payment),
+            label: 'Payments',
+          ),
+        ],
+        currentIndex: _selectedIndex,
+        selectedItemColor: Colors.red,
+        onTap: _onItemTapped,
+      ),
+    );
+  }
+}
+EOF
 
-def fight_mercenaries():
-    print("\\nVictor Kade’s mercenaries have found you!")
-    print("You must defend yourself using advanced tech gadgets.")
-    
-    fight = input("Do you want to fight (yes or no)?: ").lower()
-    
-    if fight == "yes":
-        print("You defeated the mercenaries using your advanced gadgets!")
-    else:
-        print("You fled from the battle. Victor Kade gains more power.")
-    
-    main_menu()
+  cat << 'EOF' > lib/screens/pos_screen.dartimport 'package:flutter/material.dart';
 
-def explore_city():
-    print("\\nExploring the city...")
-    print("You come across various locations: tech stores, archives, and hidden areas.")
-    print("Each location offers different clues and resources.")
-    
-    print("Which location do you want to visit?")
-    print("1. Tech Store")
-    print("2. Archives")
-    print("3. Hidden Area")
-    
-    location = input("> ")
-    
-    if location == "1":
-        print("You visit the Tech Store and find some useful gadgets.")
-    elif location == "2":
-        print("You explore the Archives and discover important documents.")
-    elif location == "3":
-        print("You enter a Hidden Area and uncover a mysterious clue.")
-    else:
-        print("Invalid choice. You wander around aimlessly.")
-    
-    main_menu()
+class PosScreen extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(title: Text('Point of Sale')),
+      body: Padding(
+        padding: const EdgeInsets.all(16.0),
+        child: Column(
+          children: [
+            // POS items and transaction processing
+            Text('POS Functionality Coming Soon'),
+            // Add POS processing logic here
+          ],
+        ),
+      ),
+    );
+  }
+}
+EOF
 
-# Start the game
-if __name__ == "__main__":
-    start_game()
-EOT
+  cat << 'EOF' > lib/screens/ecommerce_screen.dartimport 'package:flutter/material.dart';
 
-# Create README file
-echo "Creating the README file..."
-gcloud config set project aenzbi-cloud-project
-cd echoes_of_innovation
-git pull origin main
+class EcommerceScreen extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(title: Text('eCommerce')),
+      body: Padding(
+        padding: const EdgeInsets.all(16.0),
+        child: Column(
+          children: [
+            // List of products and checkout
+            Text('eCommerce Functionality Coming Soon'),
+            // Add eCommerce logic here
+          ],
+        ),
+      ),
+    );
+  }
+}
+EOF
+
+  cat << 'EOF' > lib/screens/accounting_screen.dartimport 'package:flutter/material.dart';
+
+class AccountingScreen extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(title: Text('General Accounting')),
+      body: Padding(
+        padding: const EdgeInsets.all(16.0),
+        child: Column(
+          children: [
+            // Display transactions, revenues, and expenses
+            Text('Accounting Functionality Coming Soon'),
+            // Add Accounting logic here
+          ],
+        ),
+      ),
+    );
+  }
+}
+EOF
+
+  cat << 'EOF' > lib/screens/payment_screen.dartimport 'package:flutter/material.dart';
+import 'package:stripe_payment/stripe_payment.dart';
+
+class PaymentScreen extends StatefulWidget {
+  @override
+  _PaymentScreenState createState() => _PaymentScreenState();
+}
+
+class _PaymentScreenState extends State<PaymentScreen> {
+  @override
+  void initState() {
+    super.initState();
+    StripePayment.setOptions(
+      StripeOptions(
+        publishableKey: "pk_test_12345", // Add your Stripe publishable key here
+        merchantId: "Test",
+        androidPayMode: 'test',
+      ),
+    );
+  }
+
+  void startPayment() {
+    StripePayment.paymentRequestWithCardForm(
+      CardFormPaymentRequest(),
+    ).then((paymentMethod) {
+      // Handle payment success
+    }).catchError((e) {
+      // Handle payment error
+    });
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(title: Text('Visa Card Payment')),
+      body: Center(
+        child: ElevatedButton(
+          onPressed: startPayment,
+          child: Text('Pay with Visa'),
+        ),
+      ),
+    );
+  }
+}
+EOF
+ }
+# Function to build the Flutter app (APK)
+build_flutter_app() {   echo "Building the Flutter APK...";   flutter build apk; }
+# Main execution flow
+main() {   install_flutter;   create_flutter_project "wallet_pos_ecommerce_app";   install_dependencies;   setup_project_structure;   build_flutter_app; }
+# Start script execution
+main
+#!/bin/bash
+# Function to check if README.md exists and create/update it
+update_readme() {   README_FILE="README.md"     echo "Checking if $README_FILE exists...";   if [[ -f "$README_FILE" ]]; then     echo "$README_FILE found. Updating...";   else     echo "$README_FILE not found. Creating a new one...";   fi
+  cat > $README_FILE << EOF# Wallet POS eCommerce App
+
+## Project Overview
+This project is a comprehensive mobile application developed using **Flutter**, integrating the following key features:
+- **Visa Card Payment Integration** (via Stripe)
+- **Point of Sale (POS) System**
+- **eCommerce Functionality** (product listing, shopping cart, checkout)
+- **General Accounting** for tracking transactions, revenue, and expenses
+
+## Features
+### 1. Visa Card Payment Integration
+The app supports **Visa card payments** through **Stripe**, enabling users to make payments using their Visa cards. This integration allows for secure payment processing within the app.
+
+#### Key Stripe Payment Features:
+- Users can enter their card details and process payments within the app.
+- Real-time payment validation and processing.
+- Secure handling of card information.
+
+### 2. Point of Sale (POS) System
+The **Point of Sale (POS)** feature allows users to:
+- Handle in-store sales.
+- Process payments directly.
+- Print receipts via a connected POS printer.
+- Manage product inventory during checkout.
+
+#### POS Features:
+- Integration with a POS printer for receipt printing.
+- Real-time product and inventory management during sales.
+- Efficient sales tracking.
+
+### 3. eCommerce Functionality
+The app includes **eCommerce features** that enable online shopping experiences, such as:
+- **Product listing**: View available products.
+- **Shopping cart**: Add items to the cart.
+- **Checkout**: Complete the purchase process securely.
+- **Order management**: View and track past orders.
+
+#### Key eCommerce Features:
+- Users can browse a catalog of products.
+- Shopping cart for product selection and checkout.
+- Secure payment options during checkout.
+
+### 4. General Accounting System
+The **Accounting Module** is designed to:
+- Track daily transactions, revenues, and expenses.
+- Generate financial reports and summaries.
+- Manage accounts, including income and expenses.
+
+#### Key Accounting Features:
+- Display detailed financial reports.
+- Track income and expenses over time.
+- Real-time transaction recording and balancing.
+
+## Project Structure
+The project structure is organized into different modules:
+- **lib/screens**: Contains all the screen UI components for POS, eCommerce, payments, and accounting.
+- **lib/services**: Services for handling data and payment integrations.
+- **lib/models**: Data models for the application.
+- **lib/widgets**: Reusable UI components.
+
+## Setup Instructions
+### Prerequisites:
+- Flutter SDK: Install [Flutter](https://flutter.dev/docs/get-started/install) if not already installed.
+- Stripe account: Required for Visa payment processing. You will need your **publishable key** and **secret key** from Stripe.
+
+### How to Set Up the Project:
+1. Clone the project:
+   \`\`\`bash
+   git clone <repository-url>
+   cd wallet_pos_ecommerce_app
+   \`\`\`
+
+2. Install Flutter dependencies:
+   \`\`\`bash
+   flutter pub get
+   \`\`\`
+
+3. Build the Flutter app:
+   \`\`\`bash
+   flutter build apk
+   \`\`\`
+
+4. To run the project on a connected device or emulator:
+   \`\`\`bash
+   flutter run
+   \`\`\`
+
+### Stripe Setup:
+- Add your **publishable key** to the Stripe initialization in the `lib/screens/payment_screen.dart`.
+
+### License
+This project is licensed under the MIT License.
+
+### Authors
+Developed by [Your Name].
+
+EOF
+   echo "README.md has been updated successfully."; }
+# Main execution flow
+update_readme
 git add .
-git commit -m "updating"
-git push origin main
-.ls -la
-ls -la
-cd echoes_of_innovation_game
-ls -la
-cd level
-cat <<EOT > "$README_FILE"
-# Echoes of Innovation: The Quest for Lost Tech
-
-## Overview
-
-"**Echoes of Innovation: The Quest for Lost Tech**" is a text-based adventure game where you play as Ally Elvis Nzeyimana, a brilliant software engineer in a futuristic metropolis. Your mission is to uncover and obtain a lost technology hidden within an ancient digital artifact. Navigate through various levels, solve puzzles, and interact with characters to complete your quest.
-
-## Features
-
-- **Multiple Levels**: Experience different levels with unique challenges and puzzles.
-- **Interactive Scenes**: Explore various locations in the futuristic city.
-- **Dynamic Choices**: Make decisions that influence the outcome of the game.
-- **Enhanced Gameplay**: Includes levels with security systems, clues, and interactions with different characters.
-
-## Gameplay
-
-- **Start Game**: Launch the game to begin your adventure.
-- **Main Menu**: Choose from options to search for the artifact, visit Dr. Emilia Roche, fight mercenaries, or explore the city.
-- **Levels**: Progress through levels by solving puzzles and making strategic choices.
-- **Explore City**: Visit locations like high-tech stores and city archives to gather resources and information.
-
-## Setup
-
-### Prerequisites
-
-- Python 3.x installed on your machine.
-
-### Installation
-
-1. **Clone the Repository**:
-   ```bash
-   git clone https://github.com/allyelvis/echoes_of_innovation.git
-   cd echoes_of_innovation
-
-cat <<EOT > "$README_FILE"
-# Echoes of Innovation: The Quest for Lost Tech
-
-## Overview
-
-"**Echoes of Innovation: The Quest for Lost Tech**" is a text-based adventure game where you play as Ally Elvis Nzeyimana, a brilliant software engineer in a futuristic metropolis. Your mission is to uncover and obtain a lost technology hidden within an ancient digital artifact. Navigate through various levels, solve puzzles, and interact with characters to complete your quest.
-
-## Features
-
-- **Multiple Levels**: Experience different levels with unique challenges and puzzles.
-- **Interactive Scenes**: Explore various locations in the futuristic city.
-- **Dynamic Choices**: Make decisions that influence the outcome of the game.
-- **Enhanced Gameplay**: Includes levels with security systems, clues, and interactions with different characters.
-
-## Gameplay
-
-- **Start Game**: Launch the game to begin your adventure.
-- **Main Menu**: Choose from options to search for the artifact, visit Dr. Emilia Roche, fight mercenaries, or explore the city.
-- **Levels**: Progress through levels by solving puzzles and making strategic choices.
-- **Explore City**: Visit locations like high-tech stores and city archives to gather resources and information.
-
-## Setup
-
-### Prerequisites
-
-- Python 3.x installed on your machine.
-
-### Installation
-
-1. **Clone the Repository**:
-   ```bash
-   git clone https://github.com/allyelvis/echoes_of_innovation.git
-   cd echoes_of_innovation
-
-gcloud config set project aenzbi-cloud-project
-cd echoes_of_innovation
-#!/bin/bash
-# Define directories and file names
-GAME_DIR="echoes_of_innovation_game"
-CONFIG_FILE="$GAME_DIR/config/settings.conf"
-GAME_FILE="$GAME_DIR/echoes_of_innovation.py"
-README_FILE="$GAME_DIR/README.md"
-ASSETS_DIR="$GAME_DIR/assets"
-# Define new configuration settings
-NEW_SETTINGS="
-# Echoes of Innovation Configuration
-level_count=10
-sound_volume=0.8
-image_quality=high
-video_resolution=1080p
-"
-# Update configuration file
-echo "Updating configuration file..."
-mkdir -p "$(dirname "$CONFIG_FILE")"
-echo "$NEW_SETTINGS" > "$CONFIG_FILE"
-# Update the game script to use new configuration settings
-echo "Updating the game script..."
-cat <<EOT > "$GAME_FILE"
-#!/usr/bin/env python3
-
-import os
-import sys
-import time
-from PIL import Image
-from pygame import mixer
-
-# Load configuration settings
-def load_config():
-    config = {
-        "level_count": 10,
-        "sound_volume": 0.8,
-        "image_quality": "high",
-        "video_resolution": "1080p"
-    }
-    config_file = "config/settings.conf"
-    if os.path.exists(config_file):
-        with open(config_file, 'r') as file:
-            lines = file.readlines()
-            for line in lines:
-                if '=' in line:
-                    key, value = line.strip().split('=', 1)
-                    config[key.strip()] = value.strip()
-    return config
-
-config = load_config()
-
-# Initialize the mixer for sound
-mixer.init()
-mixer.music.set_volume(float(config['sound_volume']))
-
-# Asset paths
-IMAGES_DIR = "assets/images"
-SOUNDS_DIR = "assets/sounds"
-VIDEOS_DIR = "assets/videos"
-UI_DIR = "assets/ui"
-
-# Load and display an image
-def show_image(image_path):
-    try:
-        img = Image.open(image_path)
-        img.show()
-    except Exception as e:
-        print(f"Failed to load image: {e}")
-
-# Play a sound
-def play_sound(sound_path):
-    try:
-        sound = mixer.Sound(sound_path)
-        sound.play()
-    except Exception as e:
-        print(f"Failed to play sound: {e}")
-
-# Show a video (simple example using terminal-based approach)
-def show_video(video_path):
-    print(f"Video {video_path} would be played here.")
-
-def load_level(level_number):
-    level_file = f"levels/level_{level_number}.txt"
-    if os.path.exists(level_file):
-        with open(level_file, 'r') as file:
-            print(file.read())
-    else:
-        print("Level file not found.")
-
-def start_game():
-    print("Welcome to 'Echoes of Innovation: The Quest for Lost Tech'!")
-    show_image(f"{IMAGES_DIR}/welcome.png")
-    play_sound(f"{SOUNDS_DIR}/intro.mp3")
-    print("You are Ally Elvis Nzeyimana, a genius software engineer in a futuristic metropolis.")
-    print("Your goal is to find the lost technology hidden within an ancient digital artifact.")
-    main_menu()
-
-def main_menu():
-    print("\\nWhat would you like to do?")
-    print("1. Search for the artifact")
-    print("2. Visit Dr. Emilia Roche")
-    print("3. Fight Victor Kade’s mercenaries")
-    print("4. Explore City")
-    print("5. Exit the game")
-    
-    choice = input("> ")
-    
-    if choice == "1":
-        search_for_artifact()
-    elif choice == "2":
-        visit_emilia()
-    elif choice == "3":
-        fight_mercenaries()
-    elif choice == "4":
-        explore_city()
-    elif choice == "5":
-        print("Goodbye, Ally!")
-        exit(0)
-    else:
-        print("Invalid choice. Please select again.")
-        main_menu()
-
-def search_for_artifact():
-    print("\\nYou begin searching for the artifact in a hidden part of the city.")
-    show_image(f"{IMAGES_DIR}/vault.png")
-    play_sound(f"{SOUNDS_DIR}/search.mp3")
-    print("As you approach the ancient vault, you must solve a puzzle to enter.")
-    puzzle = input("Solve this puzzle (What is 10 + 5?): ")
-    
-    if puzzle == "15":
-        print("Correct! The vault opens, revealing the ancient artifact!")
-    else:
-        print("Incorrect! You failed to open the vault.")
-    
-    main_menu()
-
-def visit_emilia():
-    print("\\nYou visit Dr. Emilia Roche at her secret lab.")
-    show_image(f"{IMAGES_DIR}/emilia_lab.png")
-    play_sound(f"{SOUNDS_DIR}/emilia.mp3")
-    print("She helps you decode part of the artifact and gives you a crucial clue.")
-    
-    print("You now have a lead on Victor Kade’s plans.")
-    
-    main_menu()
-
-def fight_mercenaries():
-    print("\\nVictor Kade’s mercenaries have found you!")
-    show_image(f"{IMAGES_DIR}/mercenaries.png")
-    play_sound(f"{SOUNDS_DIR}/fight.mp3")
-    print("You must defend yourself using advanced tech gadgets.")
-    
-    fight = input("Do you want to fight (yes or no)?: ").lower()
-    
-    if fight == "yes":
-        print("You defeated the mercenaries using your advanced gadgets!")
-    else:
-        print("You fled from the battle. Victor Kade gains more power.")
-    
-    main_menu()
-
-def explore_city():
-    print("\\nExploring the city...")
-    show_image(f"{IMAGES_DIR}/city.png")
-    play_sound(f"{SOUNDS_DIR}/explore.mp3")
-    print("You come across various locations: tech stores, archives, and hidden areas.")
-    print("Each location offers different clues and resources.")
-    
-    print("Which location do you want to visit?")
-    print("1. Tech Store")
-    print("2. Archives")
-    print("3. Hidden Area")
-    
-    location = input("> ")
-    
-    if location == "1":
-        print("You visit the Tech Store and find some useful gadgets.")
-    elif location == "2":
-        print("You explore the Archives and discover important documents.")
-    elif location == "3":
-        print("You enter a Hidden Area and uncover a mysterious clue.")
-    else:
-        print("Invalid choice. You wander around aimlessly.")
-    
-    main_menu()
-
-# Start the game
-if __name__ == "__main__":
-    start_game()
-EOT
-
-# Update README file with new features
-echo "Updating the README file..."
-cat <<EOT > "$README_FILE"
-# Echoes of Innovation: The Quest for Lost Tech
-
-## Overview
-
-"**Echoes of Innovation: The Quest for Lost Tech**" is a text-based adventure game where you play as Ally Elvis Nzeyimana, a brilliant software engineer in a futuristic metropolis. Your mission is to uncover and obtain a lost technology hidden within an ancient digital artifact. Navigate through various levels, solve puzzles, and interact with characters to complete your quest.
-
-## Features
-
-- **Multiple Levels**: Experience 10 levels with unique challenges and puzzles.
-- **Interactive Scenes**: Explore various locations in the futuristic city.
-- **Dynamic Choices**: Make decisions that influence the outcome of the game.
-- **Enhanced Gameplay**: Includes levels with security systems, clues, and interactions with different characters.
-- **Asset Integration**: Includes images, sounds, and videos to enhance the gameplay experience.
-
-## Gameplay
-
-- **Start Game**: Launch the game to begin your adventure.
-- **Main Menu**: Choose from options to search for the artifact, visit Dr. Emilia Roche, fight mercenaries, or explore the city.
-- **Levels**: Progress through 10 levels by solving puzzles and making strategic choices.
-- **Explore City**: Visit locations like high-tech stores and city archives to gather resources and information.
-
-## Configuration
-
-- **Configuration File**: Modify `config/settings.conf` for game settings such as level count, sound volume, image quality, and video resolution.
-
-## Setup
-
-### Prerequisites
-
-- Python 3.x installed on your machine.
-- `PIL` and `pygame` libraries for image and sound handling.
-
-### Installation
-
-1. **Clone the Repository**:
-   ```bash
-   git clone https://github.com/allyelvis/echoes_of_innovation.git
-   cd echoes_of_innovation
-
-cd echoes_of_innovation
+cd mobile-wallet-pos-app
+gcloud login
+gcloud auth login
